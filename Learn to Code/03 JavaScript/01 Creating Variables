@@ -1,0 +1,71 @@
+Of course, usefeul websites do more than displaying images, links and text.
+Tey use dynamic content and multimedia.
+
+We'll now look at making dynamic websites with the help of a computer language called JavaScript.
+
+Dynamic websites can remember information. For that, they use variables.
+
+Like moving boxes, variables have content and names that tell us what's inside.
+
+We create a variable with the word var.
+
+After the word var, variables need names.
+
+These names are like the labels we put on boxes to know what's inside them.
+
+  var city
+
+To create a variable for the city we live in, city is a solid name.
+
+To create variable names with multiple words, we use camel case.
+
+We start with a lowercase letter and capitalize the additional words.
+
+  var homeCity
+
+Variable names can contain numbers, too.
+Adding numbers is useful with multiple similar variables.
+
+  var car1
+
+After creating and naming a variable, we use the = sign to store a value in it.
+To finish creating a variable, we put a semicolon ; at the end of the line.
+
+  var city = "Chicago";
+
+Strings are words in double quotes.
+
+Lines of code are instructions for the computer to follow.
+
+When we run code, we tell the computer to follow the instructions we put together.
+
+The order of the instructions matters because the computer follows the instructions line by line.
+
+With the special instruction console.log(),
+we tell the computer to display a value in an area called the console.
+
+  console.log("Hello, World!")
+
+We can use the console.log() instruction as often as we want.
+The computer displays every value on on a line in the console.
+
+  console.log("3,2,1")
+  console.log("Go!")
+
+We can use console.log() to display variables too!
+
+  var greeting = "Hello World!";
+  console.log(greeting);
+
+When we display variables in the console, their values appear instead of their names.
+
+  var name = "Daenerys";
+  console.log(name);
+
+Exercise:
+
+var country = "USA";
+var state = "Florida";
+var city = "Miami";
+
+Exercise:

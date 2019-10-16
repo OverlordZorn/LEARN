@@ -1,0 +1,81 @@
+<!--
+
+Modern webpages have a lot of style, meaning they have a lot of properties to make them look great.
+
+One way to add style to agroup of elements is by setting a style for each elemet individually.
+
+But there's an easier way to add the same style to one type of element.
+We start by adding <style></style> tags inside the head tags.
+
+Inside the style tags, we specify which element to style with a tag selector, like p or h3.
+
+We then add an opening brace, {
+
+}
+followed by a closing brace.
+
+Now, any declaration we add will apply to all elements on the webpage.
+
+This way, we create a CSS rule.
+
+We can add other declarations as long as they're on another line.
+
+A CSS rule are a selector and the declarations
+
+
+  -->
+
+  <!doctype html>
+  <html>
+    <head>
+        <style>
+          p {
+            font-family:papyrus;
+            color: purple;
+            font-weight: bold;
+            font-style:italic;
+          }
+        </style>
+    </head>
+    <body>
+    <h3>List of Pharaos</h3>
+    <p>Tutankhamun</p>
+    <p>Cleopatra VII</p>
+    <p>Ramses II</p>
+    </body>
+    </html>
+
+
+<!--
+
+If we want a stlye to apply to the entire page, we can use the body selector!
+Inside the body rule, all changes are applied to the entire body.
+
+We can style as many elements as we want inside the style tags,
+as long as we add a space between different rules.
+
+Using the body tag is one of the easiest ways to add overlapping rules on elements.
+We'll learn about the orther ways soon.
+
+
+
+  -->
+
+
+  <!doctype html>
+  <html>
+    <head>
+        <style>
+          body {
+            background-color:lightBlue;
+            color:cornSilk;
+            }
+        </style>
+    </head>
+    <body>
+    <h1>The Social Book</h1>
+    <p>sign up with us</p>
+    <p></p>
+    <p></p>
+    </body>
+    </html>

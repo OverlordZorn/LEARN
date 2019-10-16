@@ -1,0 +1,36 @@
+img {
+  width:150px;
+  border-radius: 100px;
+  border: solid 5px black;
+}
+
+.flat {
+  height:50px;
+  width:100px;
+}
+
+.round {
+  height:100px;
+  width:100px;
+}
+
+
+.medium {
+ width:300px;
+ background-color: red;
+}
+
+.small {
+ width:150px;
+ background-color: pink;
+}
+
+
+.coupon {
+  border:solid;
+}
+
+.title {
+  border:solid 10px red;
+  border-radius:10px;
+}

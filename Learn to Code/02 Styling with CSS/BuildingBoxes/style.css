@@ -1,0 +1,53 @@
+.ad {
+  padding: 50px;
+  border: solid 1px black;
+  background-color: lavender;
+}
+
+.leftWing {
+  padding-left: 200px;
+  background-color: crimson;
+}
+
+.rightWing {
+  padding-right:200px;
+  background: lightBlue;
+}
+
+
+.lightObjects {
+
+padding-top
+: 20px;
+
+padding-bottom
+: 60px;
+}
+
+.heavyObjects {
+ padding-top: 60px;
+ padding-bottom: 20px;
+}
+
+p {
+ background-color: lightBlue;
+}
+
+
+.center {
+
+text-align
+: center;
+ border-radius: 100px;
+ background-color: lightBlue;
+}
+
+img {
+
+padding
+:
+
+30px
+;
+ border: solid;
+}

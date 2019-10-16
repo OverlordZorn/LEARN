@@ -1,0 +1,13 @@
+Instead of writing the same lines of code over and over,
+we create functions to reuse the lines of code.
+
+Just like variables, functions have a name. And just like variable names,
+function names use camel case.
+
+Braces {} mark out the lines of code that belong to a function.
+
+  function sayGoodMorning() {
+    console.log("Good Morning!");
+  }
+
+  

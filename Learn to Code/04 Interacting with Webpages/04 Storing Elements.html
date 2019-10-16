@@ -1,0 +1,24 @@
+<!--
+
+We can create variables like var element
+and use them to store the HTML elements we access.
+
+Now the element variable stands for what's in the element.
+
+We can access the text of the paragraph trough the variable element,
+by using .innerHTML.
+
+-->
+
+<!doctype html>
+<html>
+ <body>
+  <h3>Tweeter</h3>
+  <p id="messages">New Messages</p>
+  <script>
+    var element = document.getElementById("messages");
+    console.log(element.innerHTML);
+    element.innerHTML = "No Messages";
+  </script>
+ </body>
+</html>

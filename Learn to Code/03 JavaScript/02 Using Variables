@@ -1,0 +1,68 @@
+Variables are called variables because the values they store can change.
+
+Use the = sign to change the value.
+
+  var status = "Watching Netflix";
+  status = "Relaxing at the beach";
+  console.log(status);
+
+We can update variables as often as we want.
+We can also give variables the values of other variables.
+
+  var defaultStatus = "Hi there!;";
+  var status = "Playing football";
+
+  status = defaultStatus;
+  console.log(status);
+
+When we update a variable, it forgets its previous value.
+
+We can add string values together with a + sign.
+
+  console.log("Followers:" + "55");
+
+We call adding together string values an expression because it creates a single string value.
+When expressions contain variables, they use the values in the variables.
+We can use console.log() to see the results of expressions.
+
+  var numberOfFollowers = "55";
+  console.log("Followers: "+ numberOfFollowers);
+
+Since expressions become values, we can give them to variables just like values.
+
+  var label = "posts: " + "13";
+  console.log(label);
+
+There are other kinds ov values like numbers (w/o "")
+
+  var numberOfLikes = 5;
+
+Numbers make it easier to keep track of numeric values. Like the number of likes on a post.
+
+  var numberOfLikes = 5 + 1;
+  console.log(numberOfLikes);
+
+We use the * sign to multiply numbers and the / sign to devide numbers.
+
+  var percent 0 0.5 * 100;
+  console.log(percent);
+
+When we give numbers to variables, we can use the variables for calculations.
+
+  var numbersOfSteps = 70;
+  console.log("you're on step:");
+  console.log(numbersOfSteps+1);
+
+Since expressions become values we can store calculation results in variables.
+
+  var private = 3;
+  var public = 10;
+  var total = private + public;
+  console.log("Total Posts: " + total);
+
+Exercise:
+Build a km converter
+
+  var miles = 500;
+  var kilometers = miles * 1.609344;
+  console.log(kilometers);

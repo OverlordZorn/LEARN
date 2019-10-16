@@ -1,0 +1,62 @@
+<!--
+
+So far we've added CSS inside the HTML file.
+A better wayy is to use a different file, called a style sheet.
+
+Take a look at style.css and run the code to see the style sheet in action.
+
+We include a style sheet in a webpage with the link element.
+Link is an empty element and goes inside the head element.
+
+To know what kind of file to include,
+the opening link tag needs a rel attribute that's set to "stylesheet".
+
+With the style sheet included,
+any changes to the style sheet become visible on the page.
+
+  -->
+
+  <!doctype html>
+  <html>
+  <Head>
+    <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+      <h1>Water Puns</h1>
+      <p>
+        Why does Snoop Dog need an umbrella? Fo' Drizzle.
+        </p>
+        </body>
+        </html>
+
+<!--
+
+If there are multiple elements fo the same kind on a webpage,
+selectors like h1 h2  or p change all of these elements.
+
+If we want to select one or more elements,
+we can set a class attribute for the exact elements we want to change.
+
+Classes aren't unique, so we can set the same calss for multiple elements.
+
+To set a class as a selector in CSS,
+add the a period followed by the class name.
+
+-->
+
+<!doctype html>
+<html>
+ <head>
+  <link rel="stylesheet" href="style.css">
+ </head>
+ <body>
+  <ol>
+   TO DO:
+   <li class="grey-element">Floss</li>
+   <li>Feed Cat</li>
+   <li class="grey-element">Nap</li>
+   <li>Plan holiday</li>
+   <li class="grey-element">Order tea</li>
+  </ol>
+ </body>
+</html>

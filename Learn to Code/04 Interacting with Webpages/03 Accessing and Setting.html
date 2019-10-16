@@ -1,0 +1,36 @@
+<!--
+
+To interact with an HTML element, we need the
+
+    document.getElementById()
+
+instruction.
+
+Inside document.getElementById() we place the ID of the element we want to interact with.
+
+To make changes to the text between the tags, we need to retrieve it with .innerHTML.
+
+If document.getElementByID("").innerHTML gives us its text.
+
+After we retrieve it, we can update it by using the = sign followed by a new value.
+
+To retrief only the text of an lement, without the tags, we use .innerHTML.
+Without .innerHTML, we will retrieve the entire element, with tags, attributes and text.
+
+
+-->
+
+  <!doctype html>
+<html>
+ <body>
+  <h3>Tweeter</h3>
+  <p id="tweet">
+   <em>What's on your mind?</em>
+  </p>
+  <p id="messages">New Messages</p>
+  <script>
+    document.getElementById("messages").innerHTML = "No Messages";
+    document.getElementById("tweet");
+  </script>
+ </body>
+</html>
