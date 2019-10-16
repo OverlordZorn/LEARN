@@ -53,3 +53,5 @@ Now, in order to keep track of cookie.txt we need to add it to the list of track
 
     $ git add cookie.txt
     $ git add status
+
+yay test
