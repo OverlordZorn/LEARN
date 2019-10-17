@@ -3,4 +3,8 @@ As we already know, Git keeps track of every commit that we make. Because of tha
 
 > $ git log
 
-> commit ff 698ab 
+> commit ff 698ab
+> Author: Elliot <elliot@allsafe.com
+> Date: Tue Nov 15 14:28 2016
+>
+>    Add cookie
