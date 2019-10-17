@@ -136,7 +136,7 @@ What a beautiful piece of condensed information we have there!
 
 Whats true about `.git` folder?
 - We can view its contents with ls .git
-- It contains a file taht specifies the `HEAD``
+- It contains a file taht specifies the `HEAD`
 - It's a hidden folder
 
 Great! `.git`is a *hidden folder* and contains all the details about the *repository*.
