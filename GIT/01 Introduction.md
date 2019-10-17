@@ -1,5 +1,5 @@
-Hey, in this course, we'll dive into Git,
- a system for tracking changes in files and coordinating work in teams.
+# Git Introduction
+Hey, in this course, we'll dive into Git, a system for tracking changes in files and coordinating work in teams.
 
     $ git init
 
