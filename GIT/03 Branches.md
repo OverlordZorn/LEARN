@@ -134,3 +134,35 @@ What a beautiful piece of condensed information we have there!
 
 ## Quiz
 
+Whats true about `.git` folder?
+- We can view its contents with ls .git
+- It contains a file taht specifies the `HEAD``
+- It's a hidden folder
+
+Great! `.git`is a *hidden folder* and contains all the details about the *repository*.
+
+How can we view all the *branches* in a repository?
+The `git branch`command, used without any additional parameters, displays all the branches in a repository.
+
+
+What's git checkout used for?
+- Switching to anouther commit
+- Switching to an existing branch
+
+We can use `git checkout`with a *branch name* to switch to a branch or with a *hash code* or **tag** to move the `HEAD`to another commit.
+
+
+Which of these flags can we use with `git log`to view *branches and their *divergence*?
+- --all
+- --graph
+We just put the `--all`and `--graph`flags at the end of the `log`command.
+
+
+Can you order the commands to create a new branch and then stage and commit a `readme.md`to the new branch?
+- $ git branch experiment
+- $ git checkout experiment
+- $ add README.md
+- $ git commit
+Nice! We use `git branch`to create the `experiment`branch and `git checkout` to switch to it. Then we can stage `README.md` and commit to the branch.
+
+
