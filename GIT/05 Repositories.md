@@ -156,4 +156,19 @@ Unpacking objects: 100% (9/9), done.
 The repository was cloned into the *current directory* in and includes 9 files and directories in the *remote repository* on *GitHub*.
 
 
+What's the deal with`origin`?
+- It's the name we normally use when we fetch from a remote repository
+`origin` is the *default short name* for remote repositories when we clone or fetch them.
+
+
+Which command can we use to get changes from a n `origin` remote into a local`master` branch?
+- git pull origin master
+We need to use `git pull` followed by the *remote* and the *branch* we want to merge into the *current branch*.
+
+
+What's important to remember when *pushing* changes to a remote?
+- We need to make sure that we commit changes before pushing
+- We need to use `git push` with the remote and the branch we want to push
+- The remote needs to be listed when we use `git remote`
+We need to make sure that we commit changes before pushing with `git push`. If the remote isn't listed when we use `git remote`, we need to add it.
 
