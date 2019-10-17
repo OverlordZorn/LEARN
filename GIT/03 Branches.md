@@ -52,4 +52,85 @@ Whenever we commit something, it'll be committed to the *currently checked-out b
 
 Let's switch back to `master`and commit to it.
 
+```
+$ cat cookie.txt
+Chocolate Chip Cookie
+$ git branch alternate_reality
+$ git checkout master
+$ echo Frosted Snowman Cookie > cookie.txt
+$ git add .
+$ git commit -m "Modify cookie"
+```
+```
+[master a8ed121] Modify cookie 
+1 file changed, 1 insertion(+), 1 deletion(-)
+```
+
+We switched to `master`, so the commit happend in that branch. If we would switch to `alternate_reality`, so would the commit.
+
+## Logging with flags
+
+There's a way to display *logs* that makes reading them a lot easier.
+
+```
+$ git log --graph
+```
+```
+* commit 86b289d 
+| Author: Elliot <elliot@allsafe.com> 
+| Date: Tue Nov 15 11:41 2016 |  
+|    Add cake 
+| 
+* commit 52ebf24   
+Author: Elliot <elliot@allsafe.com>     
+Date: Tue Nov 15 11:36 2016
+
+        Add cookie
+```
+
+Way Better! with *flags* like `--graph`,we can specify what we want Git to do in a more percise way.
+
+## Logging with branches
+
+There's also a *flag* that allows us to view *branches* and the *divergence* of commits.
+```
+$ git log --graph --all
+```
+```
+* commit 86b289d 
+| Author: Elliot <elliot@allsafe.com> 
+| Date: Tue Nov 15 11:41 2016 
+|  
+|    Add cake 
+| 
+| * commit 168291b 
+|/ Author: Elliot <elliot@allsafe.com> 
+| Date: Tue Nov 15 11:38 2016 
+| 
+|    Change cookie 
+| 
+* commit 52ebf24   
+Author: Elliot <elliot@allsafe.com>   
+Date: Tue Nov 15 11:36 2016
+       Add cookie
+```
+When we use the `--all`flag along with the `log --graph`, we can see *all commits* from *all branches*.
+
+## Information overflow
+
+When there are *tons* of commits, however, we might not want to see all of the available information at once.
+```
+$ git log --graph --all
+```
+```
+* 86b289d Add cake 
+| * 168291b Change cookie 
+|/ 
+* 52ebf24 Add cookie
+```
+Psst: `--oneline`is a short version of `--pretty=oneline --abbrev-commit`.
+
+What a beautiful piece of condensed information we have there!
+
+## Quiz
 
