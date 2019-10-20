@@ -210,3 +210,91 @@ console.log(item);
 ["tablet", "phone"]
 keyboard
 ```
+
+# Deciding with Arrays
+
+## Counting and decision-making
+
+Let's find out how we can count the elements in array and use this information in smart ways.
+
+We use the word `length` after the array name and a period to get to the number of elements in an array.
+
+We can also store the length of an array in a variable.
+
+
+```java
+var tasks = ["dishes", "windows", "vacuum"];
+
+var length = tasks.length;
+
+console(tasks.length);
+```
+```java
+3
+```
+
+No matter how many elements there are in an array, length will count them for us.
+
+Even if the `tasks` array is empty, `tasks.length` gives us the number of elements in it.
+
+```java
+var tasks = [];
+console.log(tasks.length);
+```
+```java
+0
+```
+
+We can use the length of an array to create *conditional statements* that depend on its numbers of elements.
+
+```java
+var tasks = ["dishes", "windows", "vacuum"]
+
+if (tasks.length > 0) {
+    console.log("Ugh, more work!");
+}
+```
+
+We can also use the length of an array to create *for loops* that go trough all of its elements.
+
+For that, we repeat a loop as many times as there are elements in the array.
+
+```java
+var friends = ["ana", "eve", "sam"];
+
+for (var i = 0; i < 3; i++ ) {
+    console.log(i);
+}
+```
+```java
+0
+1
+2
+```
+
+But instead of specifying that i needs to be less than 3, we can also use the length of the array.
+
+```java
+var friends = ["ana", "eve", "sam"];
+
+for (var i = 0; i < friends.length; i++ ) {
+    console.log(i);
+}
+```
+
+The counter variable `i` stores the values 0,1 and 2 as the loop repeats. but 0, 1 and 2 are also the indices of the lements in friends!
+
+So every time a loop repeats, i stores an index of an element in the friends array. And we can use the index to access the element.
+
+```java
+var friends = ["Anna", "Tim", "Eve"];
+
+for (var i = 0; i < friends.length; i++) {
+    console.log(friends[i]);
+}
+```
+```java
+Anna
+Tim
+Eve
+```
