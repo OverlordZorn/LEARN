@@ -24,11 +24,11 @@ plz no hate
 ### Finished
 
 ### Currently working on
-
+* JS
 ### Wanna do
 
 * MarkDown
 * HTML
 * CSS
-* JS
+
 
