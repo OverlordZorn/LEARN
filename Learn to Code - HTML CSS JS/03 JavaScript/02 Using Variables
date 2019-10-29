@@ -44,7 +44,7 @@ Numbers make it easier to keep track of numeric values. Like the number of likes
 
 We use the * sign to multiply numbers and the / sign to devide numbers.
 
-  var percent 0 0.5 * 100;
+  var percent = 0.5 * 100;
   console.log(percent);
 
 When we give numbers to variables, we can use the variables for calculations.

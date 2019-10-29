@@ -31,7 +31,7 @@ When joining number with strings, the numers will be automatically transformed i
 ```
 console.log("10" + 10);
 -> 1010
-
+```
 Adding a number to a string also workes when we use a variable.
 
 We can also join strings and booleans.

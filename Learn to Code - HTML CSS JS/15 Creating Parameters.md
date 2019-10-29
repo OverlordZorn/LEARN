@@ -29,7 +29,7 @@ Hello, Leslie
 ```
 
 ## Function Call
-But instead of creating two very similar functions, we can send, **or pass**, a value toa customizable function.
+But instead of creating two very similar functions, we can send, **or pass**, a value to a customizable function.
 
 In this code snippet, we're using the `greet()` function and **passing** it the value `"April"`.
 
