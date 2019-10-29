@@ -1,13 +1,13 @@
 # Java Script Summary
 ### Table of Content
 [Basic](#Basic)<br>
-[Data Types](#DataTypes)<br>
-[Logical Operators](#LogicalOperators)<br>
+[Data Types](#Data-Types)<br>
+[Logical Operators](#Logical-Operators)<br>
 [Variables](#Variables)<br>
-[Increment & Decrement Operator](#Increment&DecrementOperator)<br>
+[Increment & Decrement Operator](#Increment-&-Decrement-Operator)<br>
+[Conditional Statements](#Conditional-Statements)<br>
 [Functions](#Functions)<br>
-[Conditional Statements](#ConditionalStatements)<br>
-[IF Function](#IfFunction)<br>
+[IF Function](#If-Function)<br>
 [Loops](#Loops)<br>
 # Basic
 Lines of of code are instructions a computer can follow.
@@ -94,6 +94,29 @@ count--;
 ```
 -> count == 1
 
+# Conditional Statements
+
+## Comparing Values
+When compairing, there are only the two boolean results: `true` or `false`.
+These results can be stored in variables.
+We can compare values as well as variables.
+
+## Equality Operator 
+To compare if two numbers are the same we use the equality operator `===`.
+To copare if two numbers are not the same, we use the inequality opertaror `!==`.
+
+## Compairing Numbers
+1 < 10 -> True  
+10 <= 10 -> True
+
+10 > 1 -> False  
+10 >= 10 -> True
+
+## Comparing Strings
+We can use coparisons to check if a string is equal `===` or not equal `!==` to another.
+We can also copare the stored strings of variables with each other. 
+
+
 # Functions
 
 ## Create
@@ -139,29 +162,20 @@ console.log(test1);
 console.log(timesTen(5));
 ```
 
+## Anonymous Functions
+We can store a function within a variable. Since we are defining a variable, we need to finish the line and close of the code block with an `;`.
+```JS
+var greet = function(user) {
+    return "Hello " + user
+};
+console.log(greet("Tina"));
+```
+Storing a function within a variable results in the function not having its own name, instead, to use it, we call the variable.
 
+```JS
+var greet = function(user) {return "Hello "+ user};
+```
 
-# Conditional Statements
-
-## Comparing Values
-When compairing, there are only the two boolean results: `true` or `false`.
-These results can be stored in variables.
-We can compare values as well as variables.
-
-### Equality Operator 
-To compare if two numbers are the same we use the equality operator `===`.
-To copare if two numbers are not the same, we use the inequality opertaror `!==`.
-
-### Compairing Numbers
-1 < 10 -> True
-10 <= 10 -> True
-
-10 > 1 -> False
-10 >= 10 -> True
-
-### Comparing Strings
-We can use coparisons to check if a string is equal `===` or not equal `!==` to another.
-We can also copare the stored strings of variables with each other. 
 
 # If Function
 ```JS
@@ -259,6 +273,7 @@ console.log(num.length);
 ```
 
 
-# x
+# Objects
 
-# x
+# Classes
+

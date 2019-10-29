@@ -137,9 +137,9 @@ var greet = function(user);
 Let's write a line that returns agreeting for the name saved in the user parameter, then add it between curly braces.
 
 ```java
-var greet = function(user); {
+var greet = function(user) {
     return "Hello "+ user
-}
+};
 ```
 Have you noticed anything unusual about this function?
 ## Unusual semicolon
@@ -198,11 +198,11 @@ var greet = function(user) {
 
 var greetTina = greet("Tina");
 ```
-Except for the name part, you can call an anonymous function like any othe rfunction.
+Except for the name part, you can call an anonymous function like any other function.
 
 You might be tempted to think that variable `greet` **contains** the return value of the function.
 
-But if you print `greet`, you'll se that it just stores the grocess of getting to the return value: the function's code.
+But if you print `greet`, you'll se that it just stores the proocess of getting to the return value: the function's code.
 
 ```java
 var greet = function(user) {

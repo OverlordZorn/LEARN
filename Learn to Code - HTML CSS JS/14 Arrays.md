@@ -20,7 +20,7 @@ In it's simplest form, an array consists of an opening and a closing *bracket*.
 We can assign an array to a variable just like a string or a number.
 
 ```java
-var items [];
+var items = [];
 ```
 
 After assigning an array to a variable, we can use it like any other variable.

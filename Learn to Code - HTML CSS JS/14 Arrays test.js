@@ -13,6 +13,5 @@ num.push(100);
 console.log(num);
 
 
-while (true) {
-    console.log("love anna");
-}
+console.log("###");
+
