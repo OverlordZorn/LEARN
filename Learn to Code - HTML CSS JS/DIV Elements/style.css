@@ -1,0 +1,28 @@
+body {
+    color: midnightblue;
+    font-family: Helvetica Neue;
+    background-color: rose;
+   }
+   
+   .product {
+    display: inline-block;
+    margin: 5px;
+   }
+   
+   #basketImage {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+   }
+   
+   #itemCounter {
+    position: absolute;
+    right: 56px;
+    top: 0px;
+   }
+   
+   #orderTotal {
+    margin-right: 16px;
+    text-align: right;
+   }
+   
