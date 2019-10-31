@@ -9,7 +9,6 @@ plz no hate
 
 
 ## Current
-* SQL
 
 ## Finished
 * Learn to Code - Easy peasy noob stuff
@@ -18,6 +17,7 @@ plz no hate
     * JS
 * GITHUB
 
+* SQL
 
 # My Summer Summaries
 
