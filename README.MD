@@ -16,8 +16,8 @@ plz no hate
     * CSS
     * JS
 * GITHUB
-
 * SQL
+* PHP
 
 # My Summer Summaries
 
@@ -30,5 +30,6 @@ plz no hate
 * MarkDown
 * HTML
 * CSS
-
+* SQL
+* PHP
 
