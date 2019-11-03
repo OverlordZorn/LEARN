@@ -9,7 +9,6 @@ Let's hit the ground running and check out what this little PHP script does.
 ```PHP
 <?php
     echo "Welchome, Friend!";
-?>
 ```
 Ah! IN this capter, we'lL find out what we just did here.
 
@@ -31,7 +30,6 @@ PHP programs, or scripts as they're called, start with a *opening tag* and with 
 ```PHP
 <?php
     echo "Welchome, Friend!";
-?>
 ```
 These tags form the beginning and the end of every script.
 
@@ -59,7 +57,6 @@ Apart from plain text, however, PHP can also handle *numbers* and do math with t
 ```PHP
 <?php
     echo 2 * 4;
-?>
 ```
 Psst: Numbers have no quotation marks around them!
 
@@ -73,7 +70,7 @@ To create some more complex scripts, we need a way to remember information. so-c
 <?php
     $name = "Slim Shady";
     echo $name;
-?>
+
 ```
 Variables start with a `$`sign and have a name.  
 We can pass them information using the `=` sign.
@@ -86,7 +83,6 @@ Comments are lines that can help us understand a script. We introduce them with 
 <?php
 // Create a variable and display its content:
 
-?>
 ```
 
 When a line starts with `//`, it's ignored by the server.
@@ -148,7 +144,7 @@ Variables are containers that can store information, so called *values*.
 ```PHP
 <?php
     $name = "Slim Shady";
-?>
+
 ```
 ## Strings
 
@@ -158,7 +154,7 @@ Variables are containers that can store information, so called *values*.
 $first = 'Slim ';
 $secound = "Shady";
 echo $first, $secound;
-?>
+
 ```
 It doesn't matter if we use single or double quotes, as long as we want them to be part of the string.
 
@@ -170,7 +166,7 @@ We can do lots of fun things with strings. For example, we can add them together
 $intro = "Hi, my name is ";
 $name = "Slim Shady";
 echo $intro. $name;
-?>
+
 ```
 The `.` operator combines the values of two or more strings.
 
@@ -181,7 +177,7 @@ Let's talk numbers. An *integer* is another data type that can represent whole n
 <?php
  $number = 720;
  echo $number;
-?>
+
 ```
 We've stored an *integer*, which can be positive or negative. It also doenst need any quote-signs.
 
@@ -193,7 +189,7 @@ a Float, or floating-point number, is a data type for numbers with a *decimal po
 <?php
 $number = 5.28;
 echo $number;
-?>
+
 ```
 
 ## Operators
@@ -204,7 +200,7 @@ We can use *operators* to do math with numbers.
 $number1 = 49;
 $number2 = 7;
 echo $number1 + $number2;
-?>
+
 ```
 The `-`, `*` and the `/` signs also work as well.
 The `+` sign adds the numbers together just like a regular calculator.
@@ -216,7 +212,6 @@ If we want to increase the value of a variable by, say, `10`, we can use a *shor
 <?php
 $number = 16;
 echo $number += 10;
-?>
 ```
 `+=` , `-=`, `*=` and `/=` give the result of the operation back to the variable.
 
@@ -227,8 +222,8 @@ A *boolean* is a data type that cn only be `true` or `false`.
 <?php
 $bool = true;
 echo $bool;
-?>
 ```
+
 ```
 1
 ```
@@ -240,7 +235,7 @@ Finally, *constants* are almost like variable, execpt that their values are, wel
 <?php
 define ("PI", 3,14114926535898);
 echo PI;
-?>
+
 ```
 We don't need the `$` sign with constants and usually write their names in *uppercase letters*.
 
@@ -258,7 +253,7 @@ We can use so called *conditional statements* to run a segment of  a script onyl
 if (true) {
     echo "Hi there!";
 }
-?>
+
 ```
 The code in the braces of an *if statement* only runs if its condition hat the boolean value of `true`.
 
@@ -271,7 +266,7 @@ That's why *boolean values are so much more useful than they seem to be. For exa
     if ($hour < 12){
         echo "hello there!";
     }
-?>
+
 ```
 We can use `>` and `<` to check if a value is **greater** or **less** than another.
 
@@ -287,7 +282,7 @@ We can also check wheter a value or variable is *equal* or *not equal* to someth
     if ($hour != 1) {
         echo "Not equal!";
     }
-?>
+
 ```
 The `==` and the `!=` signs are the *comparison operators* that check if two values are the same or not.
 
@@ -304,7 +299,7 @@ That's what we call an *else statement*.
     } else {
         echo "Good Afternoon!";
     }
-?>
+
 ```
 The code in the braces of the else statement runs when the condition that comes before it returns `false`.
 
@@ -318,7 +313,7 @@ Another set of comparison opterators can check for equality and inequality at th
    if ($hour >= 18) {
        echo "Good evening!";
    } 
-?>
+
 ```
 The `<=` and `>=`signs check if a value is **greater than or equal** or **less than or equal** to another value.
 
@@ -335,7 +330,7 @@ We can also combine the `else` and `if` keywords to account for *multiple condit
    } else {
        echo "Good evening!";
    }
-?>
+
 ```
 The `elseif` keyword allows us to add as many conditions as we want to check for.
 
@@ -348,7 +343,7 @@ For that we use something called the *logical and*.
    if ($hour >= 0 && $hour <24) {
        echo "Triggered!";
    }
-?>
+
 ```
 The *logical and* `&&` needs both conditions to be met for the code inside to be executed.
 
@@ -360,7 +355,7 @@ When we want to test if *at least* one conditions is true, we use something call
    if ($hour == 0 || $hour < 24) {
        echo "Triggered!";
    } 
-?>
+
 ```
 The *logical or* operator requiers only one condition to be true in the statement for the code inside to be executed.
 
@@ -380,7 +375,7 @@ When we want to compare a variable with many different values, *switch statement
         default:
             echo "Other season";
     }
-?>
+
 ```
 `case` checks for a scenario, 'break' ends the code, and 'default' triggers when there are no matches.
 
@@ -403,7 +398,7 @@ What if we want *multiple cases* in a switch statement to trigger the same code?
        default:
         echo "Are you still in school?";   
    }
-?>
+
 ```
 Cases without a `break` keyword will **fall trough* to the next `break` keyword or to the end.
 
@@ -424,7 +419,7 @@ An empty array doesn't really serve a purpose, though. How do we give it some va
 ```PHP
 <?php
    $friends = arra("Caroline", "Max"); 
-?>
+
 ```
 We can create an array with values by putting them in the *parentheses* of `array()`.
 
@@ -435,7 +430,7 @@ But how can we access the *contents* of an array?
 <?php
    $friends = array("Caroline", "Max"); 
    echo $friends[0];
-?>
+
 ```
 Psst: this position is zero-based, which means that it starts at `0`.
 
@@ -447,7 +442,7 @@ We can also *add values* to an array.
 <?php
    $friends = array("Caro", "Max");
    $friends[] = "Christine"; 
-?>
+
 ```
 We can add a value by giving it to the array with *brackets* but *without a position*.
 
@@ -458,7 +453,7 @@ How might we be able to **replace** a value?
    $friends = array("Caroline","Caro");
    $friends[1] = "Chestnut"; 
    var_dump($friends);
-?>
+
 ```
 ```
 array(2) {
@@ -477,7 +472,7 @@ We can ind out the *number of items* in an array as well.
 <?php
    $friends = array("Caroline","Max");
    echo count($array); 
-?>
+
 ```
 ```
 2
@@ -491,7 +486,7 @@ We can also sort an array. Let add some more values and get the arry in *alphabe
    $friends = array("Caroline", "Max", "Earl", "Oleg", "Han");
    sort($friends);
    var_dump($friends); 
-?>
+
 ```
 ```
 array(5) {
@@ -523,7 +518,7 @@ Sometimes we need to repeat a task over and over again.
    echo $friends[2].", ";
    echo $friends[3].", ";
    echo $friends[4];
-?>
+
 ```
 ```
 Caroline, Max, Earl, Oleg, Han
@@ -539,7 +534,7 @@ A so-called *while loop* runs a block of code as long as a vertain condition is 
         $number += 1;
         echo $number . ", ";
     }
-?>
+
 ```
 ```
 2, 3, 4,
@@ -555,7 +550,7 @@ A *do while loop* is a type of while loop that *first runs the block o code*, th
        $number += 1;
        echo $number;
    } while ($number > 4);
-?>
+
 ```
 ```
 2
@@ -573,7 +568,7 @@ The *for loop* is a very popular type of loop. It has 3 parts: the value, the co
    for ($i = 0; $i < 4; $i++) {
        echo $i.", ";
    } 
-?>
+
 ```
 Psst: $i++ is an even shorter version of `$i += 1`.
 
@@ -587,7 +582,7 @@ Now, the so-called *foreach* loop works **only on arrays*, because it goes throu
    foreach ($heros as $hero) {
        echo $hero.", ";
    } 
-?>
+
 ```
 ```
 Batman, Robin, Batgirl,
@@ -603,7 +598,7 @@ A *function* is a block of code that we can reuse whenever we want.
    function sayHi() {
        echo "Hi there!";
    } 
-?>
+
 ```
 We need the `function` keyword, a *name* and some parentheses. The code in the races runs when we use the function.
 
@@ -615,7 +610,7 @@ We need to *call* a function to make it run.
         echo "Hi there!";
     }
     sayHi();
-?>
+
 ```
 Whenever we want to call a function, we use its name and add parentheses at the end.
 
@@ -627,7 +622,7 @@ We can also pass information to functions trough *arguments*.
        echo "Hi there, $name!";
    } 
    sayHi("Joe");
-?>
+
 ```
 Psst: notice how we can put variable names right into a string!
 
@@ -642,7 +637,7 @@ In addition to performing tasks, *functions* can *return values* as well.
        return $sum;
    } 
    echo "1 + 7 = ". sum(1,7);
-?>
+
 ```
 We use the `return`keyword to give back a value whenever the function is called.
 
@@ -653,7 +648,7 @@ How might we convert a string to lowercase?
 ```PHP
 <?php
     echo strtolower("Here's the LOWDOWN.");
-?>
+
 ```
 Psst: ´strupper()`will convert strings to uppercase.
 `strlower()` will convert strings to lowercase.
@@ -664,7 +659,7 @@ What if we want to replace characters in a string with other characters?
 <?php
     $greeting = "Howdy y'all!";
     echo str_replace("y'all", "Joe"), $greeting);
-?>
+
 ```
 Psst: Notice that `str_replace()` is case-sensitive.
 
@@ -677,7 +672,7 @@ It has 3 parts: the *string*, the *index to start at*, and the *number of charac
 <?php
    $text = "You: a constant in the sea of variables.";
    echo substr($text, 0, 15); 
-?>
+
 ```
 ```
 You: a constant
@@ -689,7 +684,7 @@ We can also count the *number of words* in a string with a built-in function.
 ```PHP
 <?php
    echo str_word_count("You: a constant in the sea of variables.");
-?>
+
 ```
 ```
 8
@@ -699,7 +694,7 @@ Other built-in functions handle integers and floats. This rounds a number.
 ```PHP
 <?php
     echo round(1.5);
-?>
+
 ```
 ```
 2
@@ -711,7 +706,7 @@ With the `explode()` function, we can spit a string into an array. It takes 2 ar
    $game = "rock, paper, scissors";
    $items =explode(", ", $game);
    var_dump($items); 
-?>
+
 ```
 Psst: var_dump(), of course, is also a function.
 The *delimiter* is the string that seperates the values in the original string.
