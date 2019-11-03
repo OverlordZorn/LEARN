@@ -12,6 +12,10 @@ Let's hit the ground running and check out what this little PHP script does.
 ```
 Ah! IN this capter, we'lL find out what we just did here.
 
+### Additon by Jan
+> Jan:  
+>> You dont need fucking clsoing tags .. if it is not a template
+
 ## Capabilities
 
 PHP can do tons of things, making it a great choise for almost any website.
