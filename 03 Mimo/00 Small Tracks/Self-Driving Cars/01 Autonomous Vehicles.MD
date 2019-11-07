@@ -193,3 +193,55 @@ A good self-driving car comes down to its ability to combine information from al
 
 ## Software
 
+### Sensor fusion
+
+After the car has collected data from sensors, it's combines it to come to a logical conclusion about its state and the environment.
+
+Combining all of this data is known as *sensor fusion*.
+
+### Database
+
+Before taking any action, the self-driving car needs to check its database to see if it's encountered a similar situation before.
+
+### Data
+
+The car compares the current data from its sensors with data gathered throughout millions of other miles traveled by itself and other cars.
+
+All of this information has been previously processed with techniques such as *machine learning*.
+
+### Path planning
+
+The next step is figuring out what the car should do next. This process is called *path finding*.
+
+The main problem with path finding is that the car is not alone on the road.
+
+### Prediction
+
+Self-driving cars need to predict the behavior of all drivers or participants in traffic.
+
+That means detecting pedestrians or cyclists that a human driver might not be able to see.
+
+### Freezing car problems
+
+Getting prediction to work right is tricky because it could lead to a *freezing robot problem*. 
+
+That's when the robot is too conservative and chooses not to take any action, in which case you might get stuck in traffic for hours.
+
+### False alarms
+
+For example, self-driving cars might see a pedestrian going on the road, estimate their speed and trajectory, and stop.
+
+A hman would be able to see that it's a driver going to the side of their car to open the door. False alarms like these could be dangerous.
+
+### Behavioural cloning
+
+To counteract that, researchers are trying to make cars understand human behavior and copy their behavior in certain situations.
+
+This allows for better predictions and safer roads.
+
+### When?
+
+We're not sure when self-driving cars will hit the road everywhere.
+
+But when they will, they'll make our old cars obsolete.
+
