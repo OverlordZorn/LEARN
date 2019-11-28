@@ -431,3 +431,67 @@ CSS Variables are a powerful way to change many CSS style properties at once by 
 
 In the `penguin` class, change the black value to `gray`, the `gray`value to white, and the yellow value to orange.
 
+## Create a custom CSS Variable
+
+To create a CSS variable, you just need to give it a name with two hyphens in front of it and assign it a value like this:
+
+```css
+--penguin-skin: gray;
+```
+This will create a variable named `--penguin-skin` and give it a value of `gray`.
+
+
+## Use a custom CSS Variable
+
+After you create your variable, you can assign its value to other CSS properties by referencing the name you gave it.
+
+```css
+background: var(--penguin-skin);
+```
+
+## Attach a Fallback value to a CSS Variable
+
+When using your variable as a CSS property value, you can attach a fallback value that your browser will revert to if the given variable is invalid.
+
+Note: This fallback is not used to increase browser compatibility, and it will not work on IE browsers. Rather, it is used so that the browser has a color to display if it cannot find your variable.
+
+Here's how you do it
+```css
+background: var(--penguin-skin, black);
+```
+
+## Improve Compatibility with Browser Fallbacks
+
+When working with CSS you will likely run into browser compatibility issues at some point. This is why it's important to provide browser fallbacks to avoid potential problems.
+
+When your browser parses the CSS of a webpage, it ignores any properties that it doesn't recognize or support. For example, if you use a CSS variable to assign a background color on a site, Internet Explorer will ignore the background color because it does not support CSS variables. In that case, the browser will revert to the default value, which is typically not ideal.
+
+This means that if you do want to provide a browser fallback, it's as easy as providing another more widely supported value immediately before your declaration. That way an older browser willl have something to fall back on, while a newer browser will just interpret whatever declaration comes later in the cascasde.
+
+```
+background: red;
+background: var(--variable, rose);
+```
+
+## Inherit CSS Variables
+
+When you create a variable, it is available for you to use inside the selector in which you create it. It also is available in any of that selector's decendants. This happens because CSS variables are inherited, just like ordinary properties.
+
+To make use of inheritance, CSS variables are often defined in the :root element.
+
+`:root` is a **pseudo-class** selector that matches the root element of the document, usually the `html` element. By creating your variables in `:root`, they will be available globally and can be accessed from any other selector in the style sheet.
+
+## Change a variable for a specific area
+
+When you create your variable in `:root` they will set the value of that variable for the whole page.
+
+You can then over-write these variables by setting them again within a specific element.
+
+## Use a media query to change a variable
+
+CSS Variables can simplify the way you use media queries.
+
+For instance, when your screen is smaller or larger than your media query break point, you can change the value of a variable, and it will apply its style wherever it is used.
+
+In the `:root` selector of the `media query`, change it so `--penguin-size` is redefined and iven a value of `200px`. Also, redefine `--penguin-skin` and give it a value of `black`. Then resize the preview to see this change in action.
+
