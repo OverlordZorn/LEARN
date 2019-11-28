@@ -379,3 +379,55 @@ An example of how to do this:
 Did you know there are other ways to represent colors in CSS? One of these ways is called hexadecimal code, or hex code for short.
 
 We usually use decimals, or base 10 numbers, which use the symbols 0 to 9 for each digit. Hexadecimals (or hex) are base 16 numbers. This means it uses sixteen distinct symbols. Like decimals, the symbols 0--9 represent the valeus zero to nie. Then, A, B, C, D, E, F represent the values ten to fifteen. Altogether, 0 to F can represent a digit in hexadecimal, giving us 16 total possible values. You can find more information about hexadecimal numbers here: https://en.wikipedia.org/wiki/Hexadecimal.
+
+In CSS, we can use 6 hexadecimal digits to represent colors, two each for the red, green and blue components. For example `#000000` is black and is also the lowest possible value. You can find more information about the RGB color system here. https://en.wikipedia.org/wiki/RGB_color_model
+
+## Use Hex Code to Mix Colors
+
+To review, hex codes use 6 hexadecimal digits to represent colors, two each for red, rgreen and blue.
+
+From these three pure colors, we can vary the amounts of each to create over 16 million other colors!
+
+For example, orange is pure red, mixed with some green and no blue. in hex code, this translates to being #ffA500.
+
+The digit 0 is the lowest number in the hex code, and represents a complete absence of color.
+
+The digit F is the highte number in hex code, and represents the maximum possible brightness.
+
+## Use Abbreviated Hex Code
+
+Many people feel overwhelmed by the possibilities of more than 16 million colors. And it's difficult to rember hex doe. Fortunately, you can shorten it.
+
+For example, red's hex code can be shortend to #f00. This shortend form gives one digit for red, one for green, one for blue.
+
+This reduces the total number of possible colors to around 4000. But browsers will interpret #ff0000 and #f00 as exactly the same color.
+
+## Using RGB Values to Color Elements
+
+Another way you can represent colors in CSS is by using RGB values.
+
+the RGB value for black looks like this:
+
+`rgb(0,0,0)`
+
+while the RGB value for white looks like this:
+`rgb(255,255,255)`
+
+INstead of using six hexadecimal digits like you do with hex code, with RTG you specify the brightness of each color with a number between 0 and 255. If you do the math, the two digit for one color equals 16 times 16, which gives us 256 total values. So RGB, which start counting from zero, has the exact same number of possible values as hex code.
+
+Here's an example of how you'd change the body background to orange using it's RGB code.
+
+```css
+body {
+    background-color: rgb(255,165,0);
+}
+```
+## Use RGB to mix Colors
+Just like with hex code, you can mix colors in RGB by using combinations of different values.
+
+## Use CSS Variables to change several elements at once
+
+CSS Variables are a powerful way to change many CSS style properties at once by changing only one value.
+
+In the `penguin` class, change the black value to `gray`, the `gray`value to white, and the yellow value to orange.
+
