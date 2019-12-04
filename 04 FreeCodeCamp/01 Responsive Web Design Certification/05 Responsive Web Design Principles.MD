@@ -45,4 +45,40 @@ Setting the `display` property to blick changes the image from an inline elment 
 
 The `height` property of auto keeps the original aspect ratio of the image.
 
-##
+## Use a Retina Image for Highter Resolution Displays
+
+With the increase of internet connected devices, their sizes and specifications vary, and the displays they use could be different externally and internally.
+
+Pixel density is an aspect that could be different on one device from others and this density is known as Pixel Per Inch (PPI) or Dots Per Inch(DPI). 
+
+The most famous such display is the one known as "Retina Display" on the latest Apple MacBook Pro notebooks, and recently iMac computers. 
+
+Due to the difference in pixel density between a "Retina" and a "Non-Retina" displays, some images that have not been made with a High-Resolution Display in mind could look "pixelated" when rendred on a High-Resolution display.
+
+The simplest wa to make your images properly appear on High-Resolution Displays, such as the MacBook Pros "retina display" is to define their `width`and `heigth`values as only half of what the original file is. 
+
+Here is an example of an image that is only using half of the original height and width:
+
+```html
+<style>
+  img { height: 250px; width: 250px; }
+</style>
+<img src="coolpic500x500.jpg" alt="A most excellent picture">
+```
+
+## Make Typography Responsive
+
+Instead of using `em` or `px` to size text, you can use viewport units for responsive typography. 
+
+Viewport units, like percentages, are relative units, but they are based off different items. Viewport units are relative to the viewport dimensions (width or height) of a device, and percentages are relative to the size of the parent container element.
+
+The four different viewport units are:
+* `vw` viewport width: 10vw would be 10% of the viewport's width.
+* `vh` viewport height: 3vh would be 3% of the viewports height.
+* `vmin` viewport minimum: 70vmin would be 70% of the viewport's smaller dimension (height or width).
+* `vmax`viewport maximum: 100vmax would be 100% of the viewport's bigger dimension (height or width).
+
+Here is an example that sets a body tag to 30% of the viewport's width.
+
+`body {width: 30vw;}`
+
