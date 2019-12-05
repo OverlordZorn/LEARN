@@ -1,0 +1,15 @@
+
+body {
+  background-color: rgba(192,44,56,1);
+  text-align: center;
+  color: white;
+  font-family: monospace;
+}
+
+#tribute-link {
+  color: white;
+}
+
+#img-div {}
+#image {}
+#img-caption {}
