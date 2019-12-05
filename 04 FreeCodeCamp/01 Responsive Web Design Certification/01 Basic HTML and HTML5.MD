@@ -90,7 +90,7 @@ You can create a text input like this:
 
 Note that input elements are self-closing.
 
-## Placeholde TExt to a Text field
+## Placeholde Text to a Text field
 
 Placeholder text is what is displayed in your input element before your user has inputted anything.
 
@@ -100,7 +100,7 @@ You can create placeholder text like so:
 <input type="text" placeholder="this is placeholder text">
 ```
 
-## create a form element
+## Create a form element
 
 You can build web forms that actually submit data to a server using nothing more than pure HTML. You can do this by specifying an action on your form element.
 

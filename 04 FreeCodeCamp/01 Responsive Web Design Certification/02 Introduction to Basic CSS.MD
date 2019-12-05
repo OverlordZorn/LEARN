@@ -436,7 +436,7 @@ In the `penguin` class, change the black value to `gray`, the `gray`value to whi
 To create a CSS variable, you just need to give it a name with two hyphens in front of it and assign it a value like this:
 
 ```css
---penguin-skin: gray;
+--penguin-skin: gray;o
 ```
 This will create a variable named `--penguin-skin` and give it a value of `gray`.
 
