@@ -37,7 +37,7 @@ Their Shows
 Avatars
 
     Tom Scott
-        <img class="avatar-img" src="https://pbs.twimg.com/profile_images/1147263107082989569/kVxalZfU_400x400.png">               
+        <img class="avatar-img" src="https://pbs.twimg.com/profile_images/1147263107082989569/kVxalZfU_400x400.png">
         <a href="https://twitter.com/tomscott" alt="Twitter">@TomScott</a>
         The one in a red t-shirt. Once got five gold runs on Blockbusters.
     
@@ -58,7 +58,7 @@ Avatars
 
 ######
 
-.bluebox {background-color: rgba(29,52,77, 0.95);}
+.bluebox {background-color: hsl(211,50%, 50%);}
 
 .itunes-link {background-color:red;color: white;}
 

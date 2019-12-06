@@ -1,15 +1,222 @@
 
-body {
-  background-color: rgba(192,44,56,1);
-  text-align: center;
-  color: white;
-  font-family: monospace;
+/* General */ 
+
+.flex {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-#tribute-link {
-  color: white;
+
+body {background-color: hsl(355,80%,40%);text-align: center;color: white;font-family: monospace;}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
 }
 
+#tribute-link {color: white;}
 #img-div {}
-#image {}
+
+#image {height: auto;max-width: 100%;display: block;margin: auto;}
+#logo {max-width: 100%;display: block;height: auto;margin: auto;}
+
+.box {}
+
+#img-caption {font-size: smaller;}
+
+
+#tribute-info {}
+#div-img {}
+#image {}
 #img-caption {}
+#title {}
+
+
+
+
+.bluebox {
+  background-color: hsl(211, 48%, 20%);
+  border-radius: 25px;
+  margin: 25px;
+  padding: 25px;
+}
+
+/* About */
+
+.about {
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+/* THEIR SHOWS */
+
+.showgroup {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  max-width: 560px;
+}
+
+.content-title {
+  grid-area: title;
+  }
+
+.content-text {
+  grid-area: text;
+  width: 30%;
+}
+
+.content-media {
+  grid-area: media;
+  text-justify: auto;
+  margin: auto;
+}
+
+.media-link {
+  margin-top: 50px;
+}
+
+
+/* THE CREW */
+
+#Crew {
+  top: 50px;
+}
+
+.crewgroup {
+  justify-content: space-around;
+}
+
+.avatar {
+  display: grid;
+  grid-template-areas: 
+  'img bio'
+  'img link';
+  margin: 25px;
+}
+
+.avatar-img {
+  border-radius: 50%;
+  height: 100px;
+  width: auto;
+  grid-area: img;
+}
+
+.avatar-bio {
+  max-width: 300px;
+  grid-area: bio;
+  align-self: sretch;
+}
+
+.avatar-a {
+  color: white;
+  
+}
+
+.avatar-link {
+  border-style: solid;
+  border: 10px;
+  margin: auto;
+  border-color: black;
+  background-color: hsl(200, 50, 50);
+}
+
+/* Divers */
+
+/* RSS Elements*/
+
+.rss {
+  margin: auto;
+}
+
+.rss-link {
+    margin: auto;
+    display: auto;
+    width: 300px;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition:border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+
+
+/* Try for Responsive Website: to small, switch from flex-direction row to column */
+
+
+
+@media screen and (min-width: 800px;) { .flex {flex-direction: column;}}
+
+
+
+/* Border around boxes 
+
+div {
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+}
+
+*/
+
+
+/* Video Round Corners */
+iframe {
+  border-radius: 25px;
+  display: block;
+}
+
+a.avatar-link {
+  border: solid black;
+}
+
+/* link button 
+
+a:link, a:visited {
+  background-color: #f44336;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 25px;
+}
+
+a:hover, a:active {
+  background-color: red;
+}
+
+*/
+
+a:link {
+  color: white;
+  background-color:  hsl(355,80%,40%);
+  padding: 14px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:link.avatar-a {
+  background-color: #55acee;
+}

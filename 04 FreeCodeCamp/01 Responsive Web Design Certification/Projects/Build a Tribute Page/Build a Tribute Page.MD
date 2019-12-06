@@ -19,26 +19,26 @@ We will accept and try to fix all issue reports that use the suggested technolog
 
 Happy coding!
 
-* User Story #1*: x
+*User Story #1*: x
 My tribute page should have an element with a corresponding `id="main", which contains all other elements.
 
 
-* User Story #2*: 
+*User Story #2*: x
 I should see an element with a corresponding `id="title"`, which contains a string (i.e. text) that describes the subject of the tribute page (e.g. "Dr. Norman Borlaug").
 
-*User Story #3*: 
+*User Story #3*: x
 I should see a `div`element with a corresponding `id="img-div".
 
-*User Story #4*: 
+*User Story #4*: x
 Within the `img-div` element, I should see an `img` element with a corresponding `id="image"`.
 
-*User Story #5*: 
+*User Story #5*: x
 Within the `img-div` element, i should see an element with a corresponding `id="img-caption"` that contains textual content describing the image shown in `img-div`.
 
-*User Story #6:* 
+*User Story #6:* x
 I should see an element with a corresponding `id=tribute-info`, which contains textual content describing the subject of the tribute page.
 
-*User Story #7*: 
+*User Story #7*: x
 I should see an `a` element with a corresponding `id="tribute-link`, which links to an outside site that contains additional information about the subject of the tribute page. Hint: You must give your element an attribute of `target` and set it to `_blank`in order for your link to open in a new tab (i.e. `target="_blank").
 
 *User Story #8*: 

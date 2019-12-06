@@ -41,7 +41,7 @@ img {
 
 The `max-width` property of 100% scales the image to fit the width of its container, but the image won't stretch wider than  its original width.
 
-Setting the `display` property to blick changes the image from an inline elment (its default), to a block elment on its own line.
+Setting the `display` property to block changes the image from an inline elment (its default), to a block elment on its own line.
 
 The `height` property of auto keeps the original aspect ratio of the image.
 
