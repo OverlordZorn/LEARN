@@ -1,0 +1,64 @@
+body {
+    font-family: 'Jura', sans-serif;
+    background-color: hsla(200,20%,90%,0.9);
+    background-image: url("https://static01.nyt.com/images/2016/11/18/nyregion/18ABOUT1/18ABOUT1-superJumbo.jpg?quality=90&auto=webp");
+    color: hsla(0,0%,0%,1);
+    background-size: auto;
+    text-align: center;
+    width: 90%;
+    margin: auto;
+    min-width: 700px;
+
+}
+
+#title {}
+#description {}
+
+.label {}
+
+input { 
+    color: grey;
+    padding: 5px;
+    border-radius: 10px;
+    width: 300px;
+    background-color: hsla(200, 20%, 90%, 0.5);
+}
+input[type=radio] {
+    width: auto;
+    margin: 10px;
+}
+
+input[type=checkbox] {
+    width: auto;
+}
+
+
+#survey-form {
+    border: solid;
+    border-color: hsla(200, 20%, 90%, 0.5);
+    border-radius: 25px;
+    padding: 50px;
+    margin: auto;
+    width: 500px;
+    background-color: hsla(200, 20%, 90%, 0.5);
+}
+
+#dropdown {}
+
+#submit {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    background-color: rgb(7, 172, 128);
+    width: 100%;
+    margin: 5px;
+    padding: 20px;
+}
+
+
+hr {width: 300px;}
+
+#title {
+    color: whitesmoke;
+    font-size: 500%;
+}
