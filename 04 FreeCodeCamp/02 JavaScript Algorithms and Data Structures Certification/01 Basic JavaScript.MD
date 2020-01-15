@@ -698,3 +698,793 @@ test(false);    // returns "It was false"
 
 When `test` is called with a value of `true`, the `if` statement evaluates `myCondition` to see if it is `true`or not. Since it is `true`, the function returns `"It was true"`. When we  call `test`with a value of `false`,`myCondition` is *not* `true`and the statement in the curly braces is not executed and the function returns `"It was false"`.
 
+Note
+`return` ends a running function.
+
+## Comparison with the Equality Operator
+
+There are many *comparison operators* in JavaScript. All of these operators return a boolean of `true` or `false` value.
+
+The most basic operator is the equality operator `==`.
+
+The equality operator compares two values and returns `true` if they're equivalent or `false`if they are not. Note that equality is different from assignment (`=`), which assigns the value at the right of the operator to a variable in the left.
+
+```js
+function equalityTest(myVal) {
+    if (myVal == 10) {
+        return "Equal";
+    }
+    return "Not Equal";
+}
+```
+
+If `myVal` is equal to `10`, the equality operator returns `true`, so the code in the curly braces will execute, and the function will return `"Equal"`. Otherwise, the function will return `"Not Equal"`. In order for JavaScript to compare two different *data types* (for example, `numbers` and `strings`), it must convert one type to another. This is known as "Type Coercion". Once it does, however, it can compare terms as follows:
+
+```js
+1 == 1      // true 
+1 == 2      // false
+1 == '1'    // true
+"3" == 3    // true
+```
+
+## Comparison with the Strict Equality Operator
+
+Strict equality (`===`) is the counterpart to the equality operator (`==`). However, unlike the equality operator, which attempts to convert both values being compared to a common type, the strict equality operator does not perform a type conversion.
+
+If the values being compared have different types, they are considered unequal, and the strict equality operator will return false.
+
+Examples
+```js
+3 === 3     // true
+3 === "3"   // false
+```
+In the second example, `3` as a `Number`type and `"3"` is a `String` type.
+
+## Practice comparing different values
+
+In the last two challenges, we learned about the equality operator (`==`) and the strict equality operator (`===`).
+Lets do a quick review and practice using these operators some more.
+
+If the values being compared are not of the same type, the equality operator will perform a type conversion, and then evaluate the values. However, the strict equality operator will compare both the data type and value as-is, without converting one type to the other.
+
+Examples
+```js
+3 == '3'        // returns true because Java Script performs type conversion from string to number
+3 === '3'       // returns false because the types are different and type conversion is not performed
+```
+
+Note
+In JavaScript, you can determine the type of a variable or a value with the `typeof` operator, as follows:
+
+```js
+typeof 3    // returns 'number'
+typeof "3"  // returns 'string'
+```
+
+## Comparison with the Inequality Operator
+
+The inequality operator (`!=`) is the opposite of the equality operator. It means "Not Equal" and returns `false` where equality would return `true`and *vice versa*. Like the equality operator, the inequality operator will convert data types of values while comparing.
+
+**Examples**
+```js
+1 != 2      // true
+1 != "1"    // false
+1 != '1'    // false
+1 != true   // false - this means that 1 = true returns true
+0 != false  // false - this means that 0 = false returns true
+```
+
+## Comparison with the Strict Inequality Operator
+
+The strict inequality operator (`!==`) is the logical opposite of the strict equality operator. It means "Strictly Not Equal" and returns `false` where strict equality would return `true` and *vica versa*. Strict inequality will not convert data types.
+
+**Examples**
+```js
+3 !== 3  // false
+3 !== '3'// true
+4 !== 3  // true
+```
+
+## Comparison with the Greater Than Operator
+
+The greater than operator (>) compares the values of two numbers. If the number to the left is greater than the number to the right, it returns true.
+Otherwise it returns false.
+
+Like the equality operator, greater than operator will convert data types of values while comparing.
+
+## Comparison with the Greater Than or Equal To Operator
+
+The Greater than or equal to operator (>=) compares the values of two numbers. If the number to the left is greater than or equal to the number to the right, it returns `true`. Otherwise, it will return `false`.
+
+Like the equality operator, greater than or equal to operator will convert data types while comparing.
+
+## Comparison with the Less Than Operator
+
+The less than operator (<) compares the values of two numbers. If the number to the left is less than the number to the right, it returns true. Otherwise it returns false. 
+
+Like the equality operator, less than operator converts data types while comparing.
+
+## Comparison with the Lass Than Or Equal To Operator
+
+The less than or equal to operator (<=) compares the values of two numbers. If the number to the left is less than or equal to the number to the right, it returns true. 
+
+If the numbers on the left is greater than the number on the right, it returns false. Like the equality operator, `less than or equal to` converts data types.
+
+## Comparions with the Logical And Operator
+
+Sometimes you will need to test more than one thing at a time. 
+The *logical and* operator (`&&`) returns `true` if and only if the *operands* to the left and right of it are true.
+
+The same effect could be achieved by nesting an if statement inside another if:
+
+```js
+if (num>5) {
+    if (num<10) {
+        return "yes";
+    }
+}
+return "No";
+```
+
+will only return "Yes" if `num` is greater tha `5` and less than `10`. The same logic can be written as:
+
+```js
+if num > 5 && num < 10) {
+    return "yes";
+}
+return "no";
+```
+
+```
+true && true    // true
+false && ...   // false
+true && false  // false
+```
+
+## Comparisons with the Logical Or Operator
+
+The *logical or* operator (`||`) returns `true` if either of the *operands* is `true`. Otherwise, it returns `false`.
+
+The logical or operator is composed of two pipe symbols: (||). This can typially be ound between your Backspace and Enter keys.
+
+The pattern below should look familiar from prior waypoints:
+```js
+if (num > 10) {
+    return "No";
+}
+if (num < 5) {
+    return "No";
+}
+return "Yes";
+```
+
+will return "yes" Only if `num`is between `5` and `10`(5 and 10 included). The same logic can be written as:
+```js
+if (num > 10 || num < 5) {
+    return "No";
+}
+return "Yes";
+```
+
+```
+true || ...     // true
+false || true   // true
+false || false  // false
+```
+
+## Introducing Else Statements
+
+When a condition for an `if` statement is true, the block of code following it is executed. What about when that condition is false?
+
+Normally nothing would happen. With an `else` statement, an alternate block of code can be executed.
+
+```js
+if (num > 10) {
+    return "Bigger than 10";
+} else {return "10 or Less";
+}
+```
+## Introducing Else If Statements
+
+If you have multiple conditions that need to be addressed, you can chain `if` statements together with  `else if` statements.
+
+```js
+if (num>15){
+    return "Bigger than 15";
+} else if (num < 5 ) {
+    return "Smaller than 5";
+} else {
+    return "between 5 and 15";
+}
+```
+
+## Logical Order in If Else Statements
+
+Order is important in `if`, `else if`statements.
+
+The function is executed from top to bottom so you will want to be careful of waht statement comes first.
+
+Take these two functions as an example.
+```js
+function foo(x) {
+    if (x < 1) {
+        return "Less than one";
+    } else if (x < 2) {
+        return "Less than two";
+    } else {
+        return "Greater than or equal to two";
+    }
+}
+```
+
+And the secound just switches the order of the statements:
+```js
+
+function bar(x) {
+    if (x < 2) {
+        return "Less than two";
+    } else if (x<1){
+        return "Less than one";
+    } else {
+        return "Greater than or equal to two";
+    }
+}
+```
+While these two functions look nearly identical if we pass a number to both we get different outputs.
+```js 
+foo(0) // "Less than one"
+bar(0) // "Less than two"
+```
+
+## Chaining If Else Statements
+
+`if/else` statements can be chained together for complex logic. Here is *pseudocode* of multiple chained if / else if statements:
+
+```js
+if(condition1) {
+    statement1
+} esle if (condition2) {
+    statement2
+} else if (contition3) {
+    statement3
+    . . .
+} else {
+    statementN
+}
+```
+
+## GolfCode
+
+In the game of golf each hole has a `par` meaning the average number of strokes a golfer is expected to make in order to sink the ball in a hole to complete the play. Depending on how far above or below `par` your `strokes` are, there is a different nickname.
+
+Your function will be passed `par` and `strokes`arguments. Return the correct string according to this table which lists the strokes in order of prorioty; top to bottom:
+
+1 =         Hole in one!
+<= par - 2  "Eagle"
+par - 1     "Birdie"
+par         "Par"
+par + 1     "Bogey"
+par + 2     "Double Bogey"
+=> par + 3  "Go Home!"
+
+`par` and `strokes` will always be numeric and positive. We have added an array of all the names for your convenience.
+
+```js
+var names = ["Hole-in-one!", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go Home!"];
+function golfScore(par, strokes) {
+  // Only change code below this line
+  if (strokes == 1) {
+    return names[0];
+  } else if (strokes <= par - 2){
+    return names[1];
+  } else if (strokes == par - 1){
+    return names[2];
+  } else if (strokes == par){
+    return names[3];
+  } else if (strokes == par +1){
+    return names[4];
+  } else if (strokes == par +2){
+    return names[5];
+  } else if (strokes >= par +3){
+    return "Go Home!";
+  }
+  // Only change code above this line
+}
+
+// Change these values to test
+golfScore(5, 4);
+
+```
+
+## Selecting from Many Options with Switch Statements
+
+If you have many options to choose from, use a *switch* statement. A `switch` statement tests a value and can have many *case* statements which define various possible values. Statements are executed from the frist matched `case` value until a `break` is encountered.
+
+Here is an example of a `switch` statement:
+```js
+switch(lowercaseLetter) {
+    case "a":
+        console.log("A");
+        break;
+    case "b":
+        console.log("B");
+        break;
+}
+```
+`case` values are tested with strict equality (`===`). The `break` tells JavaScript to stop executing statements. If the `break`is omitted, the next statement will be executed.
+
+## Adding a Default Option in Switch Statements
+
+In a `switch` statement you may not be able to specify all possible values as `case` statements. Instead, you can add the `default` statement which will be executed if no matching `case` statements are found. Think of it like the final `else` statement in an `if/else` chain.
+
+A `default` statement should be the last case.
+
+```js
+switch(num) {
+    case value1:
+        statement1;
+        break;
+    case value2:
+        statement2;
+        break;
+    ...
+    default;
+        defaultStatement;
+        break;
+}
+```
+
+## Multiple Identical Options in Switch Statements
+
+If the `break`statement is omitted from a `switch`statement's `case`, the following `case`statement(s) are executed until a `break` is encountered. If you have multiple inputs with the same output, you can represent them in a `switch`statement like this:
+
+```js
+switch(val){
+    case 1:
+    case 2:
+    case 3:
+        result = "1, 2, or 3";
+        break;
+    case 4:
+        result = "4 alone";
+}
+```
+Cases for 1,2, and 3 will all produce the same result.
+
+## Replacing If Else Chains with Switch
+
+If you have many options to choose from, a `switch`statement can be easier to write than many chained `if/else` statements.
+The following:
+```js
+if (val === 1){
+    answer = "a";
+} else if (val === 2){
+    answer = "b";
+} else {
+    answer = "c";
+}
+```
+can be replaced with:
+```js
+switch(val){
+    case 1:
+        answer = "a";
+        break;
+    case 2:
+        answer = "b";
+        break;
+    default:
+        answer = "c";
+}
+```
+
+## Returning Boolean Values from Functions
+
+You may recall from `Comparison with the Equality Operator` that all comparison operators return a boolean `true` or `false`value.
+
+Sometimes people us an `if/else`statement to do a comparison, like this:
+
+```js
+function isEqual(a,b){
+    if (a===b){
+        return true;
+    } else {
+        return false;
+    }
+}
+```
+but there's a better way to do this. Since `===` returns `true` or `false`, we can return the result of the comparison:
+```js
+function isEqual(a,b){
+    return a===b;
+}
+```
+
+## Return Early Patterns for Functions
+
+When a `return` statement is reached, the execution of the current function stops and control returns to the calling location.
+
+**Example**
+```js
+function myFun(){
+    console.log("Hello");
+    return "World";
+    console.log("byebye");
+}
+myFun();
+```
+The above outputs "Hello" to the console, returns "World", but "byebye" is never output, because the function exits at the return statement.
+
+## Counting Cards
+
+In the casino game Blackjack, a player can gain an advantage over the house by keeping track of the relative number of high and low cards remaining in the deck. This is called `Card Counting`.
+
+Having more high cards remaining in the deck favors the player. Each card is assigned a value according to the table below. When the count is positive, the player should bet high. When the count is zero or negative, the player should bet low.
+
+  Count Change | Cards 
+ --- | --- 
+ +1 | 2, 3, 4, 5, 6
+ 0 | 7, 8, 9
+ -1 | 10, 'J', 'Q', 'K', 'A'
+
+ You will write a card counting function. It will recieve a `card` parameter, which an be a number or a string, and increment or decrement the global `count`variable according to the card's value (see table). The function will then return a string with the current count and the string `Bet` if the count is positive or `Hold` if the count is zero or negative. The current count and the player's decision (`Bet` or `Hold`) should be separated by a single space.
+
+ **Example Output**
+ `-3 Hold`
+ `5 Bet`
+
+ **Hint**
+ Do NOT reset `count` to 0 when value is 7,8 or 9.
+ do NOT return an array.
+ Do NOT include quotes (single or double) in the output.
+
+ ```js
+ var count = 0;
+
+function cc(card) {
+  // Only change code below this line
+  switch (card) {
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+      count += 1;
+      break;
+    case 7:
+    case 8:
+    case 9:
+      count += 0;
+      break;
+    case 10:
+    case 'J':
+    case 'Q':
+    case 'K':
+    case 'A':
+      count += -1;
+      break; 
+  }
+  if (count>0) {return count + " Bet"}
+  else {return count + " Hold"}
+
+  // Only change code above this line
+}
+
+// Add/remove calls to test your function.
+// Note: Only the last will display
+cc(2); cc(3); cc(7); cc('K'); cc('A');
+```
+
+## Build JavaScript Objects
+
+You may have heard of the term `object` before.
+
+Objects are similar to `arrays`, except that instead of using indexes to access and modify their data, you access the data in objects through what are called `properties`.
+
+Objects are useful for storing data in a structured way, and can represent real world objects, like a cat.
+
+Here's a sample cat object:
+
+```js
+var cat = {
+    "name": "Whiskers",
+    "legs": 4,
+    "tails": 1,
+    "enemies": ["Water", "Dogs"]
+};
+```
+
+In this example, all the properties are stroed as strins, such as - `"name"`, `"legs"`, `"tails"`. However, you can also use numbers as properties. You can even omit the quotes for single-word string  propertise, as follows:
+```js
+var anotherObject = {
+    make: "Ford",
+    5: "five",
+    "model": "focus"
+};
+```
+
+However, if you object has any non-string properties, JavaScript will automatically typecast them as strings.
+
+## Accessing Object Properties with Dot Notation
+
+There are two ways to access the properties of an object: dot notation (`.`) and bracket notation (`[]`), similar to an array.
+
+Dot notation is what you use when you know the name of the property you're trying to access ahead of time.
+
+Here is a sample of using dot notation (`.`) to read an object's property:
+```js
+var myObj = {
+    prop1: "val1",
+    prop2: "val2"
+};
+var prop1val = myObj.prop1; // val1
+var prop2val = myObj.prop2; // val2
+```
+
+## Accessing Object Properties with Bracket Notation
+
+The secound way to access the properties of an object is bracket notation (`[]`). 
+
+If the property of the object you are trying to access has a space in its name, you will need to use bracket notation.
+
+However, you can still use bracket notation on objects properties without spaces.
+
+Here is a sample of using bracket notation to read an object's property:
+
+```js
+var myObj = {
+    "Space Name": "Kirk",
+    "More Space": "Spock",
+    "noSpace": "USS Enterprise"
+};
+myObj["Space Name"]; // Kirk
+myObj["More Space"]; // Spock
+myObj["NoSpace"];    // USS Enterprice
+```
+Note that property names with spaces in them must be in quotes (single or double).
+
+## Accessing Object Properties with Variables
+
+Another use of bracket notation on objects is to access a property which is stored as the value of a variable. This can be very useful for iterating through an object's properties or when accessing a lookup table.
+
+Here is an example of using a variable to access a property:
+```js
+var dogs = {
+    Fido: "Mutt", Hunter: "Doberman", Snoopie: "Beagle"};
+
+var myDog = "Hunter";
+var myBreed = dogs[myDog];
+console.log(myBreed); // "Doberman"
+```
+
+Another way you can use this concept is when the property's name is collected dynamically during the program execution, as follows:
+
+```js
+var someObj = {
+    propName: "John"
+};
+function propPrefix(str) {
+    var s = "prop";
+    return s + str;
+}
+
+var someProp = propPrefix("Name");  // someProp now holds the value 'propName'
+console.log(someObj[someProp]);     // "John"
+```
+Note that we do *not* use quotes around the variable name when using it to access the property because we are using the `value` of the variable, not the `name`.
+
+## Updating Object Properties
+
+After you've created a JavaScript object, you can update it's properties at any time just like you would update any other variable. You can use either dot or bracket notation to update.
+
+For example, let's look at `ourDog`:
+```js
+var ourDog = {
+    "name": "Camper",
+    "legs": 4,
+    "tails": 1,
+    "friends": ["everything"]
+};
+```
+Since he's particularly happy dog,let's change his name to "Happy Camper". Here's how we updae his object's name property: 
+
+`ourDog.name = "Happy Camper";` or `ourDog["name"] = "Happy Camper";`
+
+Now when we evaluate `ourDog.name`, instead of getting "Camper", we'll get his new name, "Happy Camper".
+
+## Add New Properties to a JavaScript Object
+
+You can add new properties to existing JavaScript objects the same way you would modify them.
+
+Here's how we would add a `"bark"` property to `ourDog`.
+
+`ourDog.bark = "bow-wow";`
+
+or
+
+`ourDog["bark"] = "bow-wow";`
+
+Now when we evaluate `ourDog.bark`, we'll get his bark, "bow-wow".
+
+## Delete Properties from a JavaScript Object
+
+We can also delete properties from objects liek this:
+
+`delete ourDog.bark;`
+or
+`delete ourDog["bark"];`
+
+## Using Objects for Lookups
+
+Objects can be thought of as a key/value storage, like a dictionary. If you have tabular data, you can use an object to lookup values rather than a `switch` statement or an `if/else` chain. This is most useful when you know that your input data is limited to a certain range.
+
+Here is an example of a simple reverse alphabet lookup:
+```js
+var alpha = {
+    1: "Z",
+    2: "Y",
+    3: "X",
+    4: "W",
+    ...
+    24: "C",
+    25: "B",
+    26: "A"
+};
+
+alpha[2];   // Y
+alpha[24];  // C
+
+var value = 2;
+alpha[value]; // Y
+```
+
+## Testing Objects for Properties
+
+Sometimes its is useful to check if the property of a given object exists or not. 
+
+We can use the `.hasOwnProperty(propname)`metho of objects to determine if that object has the given property name.
+
+`.hasOwnProperty()` returns `true` or `false` if the property is found or not.
+
+**Example**
+```js
+var myObj = {
+    top: "hat",
+    bottom: "pants"
+};
+
+myObj.hasOwnProperty("top");    // true
+myObj.hasOwnProperty("middle"); // false
+```
+
+## Manipulating Complex Objects
+
+Sometimes you may want to store data in a flexible *Data Structure*. A JavaScript object is one way to handle flexible data. They allow for arbitrary combination of *strings, numbers, booleans, arrays, functions,* and *objects*.
+
+Here's an example of complex data structure:
+```js
+var ourMusic = [
+    {
+        "arist": Daft Punk",
+        "title": Homework",
+        "release_year": 1997,
+        "formats": [
+            "CD","Cassette","LP"
+        ],
+        "gold": true
+    }
+];
+```
+This is an array which contains one object inside. The object has various pieces of *metadata* about an album. It also has a nested `"formats"`array.
+
+If you want to add more album records, you can do this by adding records to the top level array. 
+
+Objects hold data in property, which has a key-value format. 
+
+In this example above `"artist": "Daft Punk"` is a property that has a key of `"artist"`and a value of `"Daft Punk"`. 
+
+JavaScript Object Notation
+https://www.json.org/json-en.html
+or `JSON` is related data interchange format used to store data.
+
+```json
+{
+    "artist": "Daft Punk",
+    "title": "Homework",
+    "release_year": 1997,
+    "formats": ["CD", "Casette", "LP"],
+    "gold": true
+}
+```
+**Note** 
+You will need to place a comma after every object in the array, unless it is the last object in the array.
+
+## Accessing Nested Objects
+
+The sub-properties of objects can be accessed by chaining together the dot or bracket notation.
+
+Here is a nested object:
+```js
+var ourStorage = {
+    "desk": {
+        "drawer": "stapler"
+    },
+    "cabinet": {
+        "top drawer": {
+            "folder1": "a file",
+            "folder2": "secrets"
+        };
+        "bottom drawer": "soda"
+    }
+};
+
+ourStorage.cabinet["top drawer"].folder2; // "secrets"
+ourStorage.desk.drawer; // "stapler"
+```
+
+## Accessing Nested Arrays
+
+As we have seen in earlier examples, objects can contain both nested objects and nested arrays. 
+
+Similar to accessing nested objects, Array bracket notation can be chained to access nested arrays.
+
+Here is an example of how to access a nested array:
+```js
+var ourPets = [
+    {
+        animalType: "cat",
+        names: ["Meowzer", "Fluffy", "Kit-Cat"]
+    },
+    {
+        animalType: "dog",
+        names: [
+            "Spot",
+            "Bowser",
+            "Frankie"
+        ]
+    }
+];
+
+ourPets[0].names[1]; // "Fluffy"
+ourPets[1].names[0]; // "Spot"
+```
+
+## Record Collection
+
+You are given a JSON object representing a part of your musical album collection. Each album has several properties and a unique id number as its key. Not all albums have complete information.
+
+Write a function which takes an album's `id`(like `2548`), a property `prop`(like `"artist"` or `"tracks"`), and a `value` (like `"Addicted to Love"`) to modify the data in this collection.
+
+If `prop`isn't `"tracks"`and `value` isn't empty (`""`), update or set the `value` for that record album's property.
+
+Your function must always return the entire collection object.
+
+There are several rules for handling incomplete data:
+
+If `prop` is `"tracks"` but the album doen'st have `"tracks"`property, create an empty array before adding the new value to the album's corresponding property.
+
+If `prop` is `"tracks`" and `value` isn't empty  (`""`), push the value onto the ends of the album's  existing `tracks` array.
+
+If `value` is empty (`""`), delete the given `prop` property from the album.
+
+**Hints** 
+Use `bracket notation` when __accessing object properties with variables__.
+
+Push is an array method you can read about here
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
+
+You may refer back to **Manipulating Complex Objects** INtroducing Java Script Object Notation (JSON) for a refresher.
+
+```js
+function updateRecords(id, prop, value) {
+  if (value == "") {delete collection[id][prop];} 
+  else if (prop == "tracks") {
+    if (!collection[id].hasOwnProperty("tracks")) {collection[id].tracks = [];}
+    collection[id].tracks.push(value);} 
+  else {collection[id][prop] = value;}  
+  return collection;
+}
+```
+
+
+
