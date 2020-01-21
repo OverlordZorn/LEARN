@@ -1956,6 +1956,37 @@ The starting number will always be less than or equal to the ending number. Your
 
 ```js
 function rangeOfNumbers(startNum, endNum) {
-    return [];
+    if (startNum === endNum) {
+        return [endNum];
+    } else {
+        const array = rangeOfNumbers(startNum+1, endNum);
+        array.unshift(startNum);
+        return array;
+    }
+```
+
+### Solution 1
+```js
+function rangeOfNumbers(startNum, endNum){
+    if (endNum - StartNum === 0) {
+        return [startNum];
+    } else {
+        var numbers = rangeOfNumbers(startNum, endNum - 1);
+        numbers.push(endNum);
+        return numbers;
+    }
+}
+```
+### Solution 2
+```js
+function rangeOfNumbers(startNum, endNum) {
+    return startNum === endNum ? [startNum] : rangeOfNumbers(startNum, endNum -1).concat(endNum);
+}
+```
+
+### Solution 3
+```js
+function rangeOfNumbers(startNum, endNum) {
+    return startNum === endNum ? [startNum] : [...rangeOfNumbers(startNum, endNum - 1), endNum];
 }
 ```
