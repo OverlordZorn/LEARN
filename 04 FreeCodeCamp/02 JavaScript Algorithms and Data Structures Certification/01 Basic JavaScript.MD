@@ -496,7 +496,7 @@ Although JS is able to process this correctly, this may confuse other programmer
 
 An easy way to append data to the end of an array is via the `push()`function.
 
-`.push()`takes one ore more **parameters** and "pushes" them onto the end of the array.
+`.push()`takes one or more **parameters** and "pushes" them onto the end of the array.
 
 ```js
 var arr = [1,2,3];
@@ -1117,6 +1117,9 @@ The above outputs "Hello" to the console, returns "World", but "byebye" is never
 
 ## Counting Cards
 
+
+
+
 In the casino game Blackjack, a player can gain an advantage over the house by keeping track of the relative number of high and low cards remaining in the deck. This is called `Card Counting`.
 
 Having more high cards remaining in the deck favors the player. Each card is assigned a value according to the table below. When the count is positive, the player should bet high. When the count is zero or negative, the player should bet low.
@@ -1486,5 +1489,473 @@ function updateRecords(id, prop, value) {
 }
 ```
 
+## Iterate with JavaScript While Loop
+
+You can run the same code multiple times by using a loop.
+
+The frist type of loop we will learn is called a `while` loop because it runs "while" a specified condition is true and stops once that condition is no longer true.
+
+```js
+var ourArray = [];
+var i = 0;
+while(i<5){
+    ourArray.push(i);
+    i++;
+}
+```
+
+In the code example above, the `while` loop will execute 5 times and append the numbers 0 through 4 to `ourArray`.
+
+Let's try getting a while loop to work by pushing values to an array.
+
+## Iterate with JavaScript For Loops
+
+You can run the same code multiple times by using a loop.
+
+The most common type of JavaScript loop is  called a `for` loop because it runs "for" a specific number of times.
+
+For loops are declared with three optional expressions separated by semicolons:
+
+`for ([initialization]; [condition]; [final-expression])`
+
+The `initialization` statement is executed one time only before the loop starts. It is typically used to define and setup your loop variable.
+
+The `condition` statement is evaluated at the beginning of every loop iteration and will continue as long as it evaluates to `true`. When `condition` is `false`at the start of the iteration, the loop will stop executing. This means if `contition` starts as `false`, you loop will never execute.
+
+The `final-expression` is execuited at the end of each loop iteration, prior to the next `condition` check and is usually used to increment or decrement your loop counter.
+
+In the following example we initialize with `i = 0` and iterate while our condition `i < 5` is true. We'll increment `i` by `1` in each loop iteration with `i++` as our `final-expression`.
+
+```js
+var ourArray = [];
+or (var i = 0; i<5;i++) {
+    ourArray.push(i);
+}
+```
+
+`ourArray` will contain `[0,1,2,3,4].
+
+## Iterate Odd Nubmers With a For Loop
+
+For loops don't have to iterate one at a time. By changing our `final-expression`, we can count by even numbers.
+
+We'll start at `i = 0`  nad loop while `i < 10`. We'll increment `i by 2 each loop with ` i += 2`.
+
+```js
+var ourArray =[];
+for (var i = 0; i < 10; i += 2){
+    ourArray.push(i);
+}
+```
+
+`ourArray` will now contain `[0,2,4,6,8]`. 
+
+## Count Backwards with a For Loop
+
+A for loop can also count backwards, so long as we can define the right conditions.
+
+In order to count backwards by twos, we'll need to change our `initialization`, `condition`, and `final-expression`.
+
+We'll start at `i = 10` and loop while `i > 10`. We'll decrement `i` by 2 each loop with `i -= 2`.
+
+```js
+var ourArray = [];
+for (i = 10; i > 0; i-= 2) {
+    ourArray.push(i);
+}
+```
+`ourArray` will now contain `[10,8,6,4,2]`. 
+
+## Iterate Through an Array with a For Loop
+
+A common task in JavaScript is to iterate through the contents of an array. One way to do that is with a `for` loop. This code will output each element of the array `arr` to the console:
+```js
+var arr = [10, 9, 8, 7, 6];
+for (var i = 0; var < arr.length; i++) {
+    console.log(arr[i]);
+}
+```
+
+Remember that arrays have zero-based indexing, which means the last index of the array is `length -1`. In this case the last iteration is `i==4` i.e. when `i` becomes equal to `arr.length` and outputs `6` to the console.
+
+## Nesting For Loops
+
+If you have a multi-dimensional array, you can use the same logic as the prior waypoint to loop through both the array and the sub-array. Here is an example:
+
+```js
+var arr = [ [1,2], [3,4], [5,6] ];
+for (var i = 0; i < arr.length; i++) {
+    for (var j=0; i < arr[i][j]; j++) {
+        console.log(arr[i][j]);
+    }
+}
+```
+This outputs each sub-element in `arr` one at a time. Note that for the inner loop, we are checking for the `.length` of `arr[i]`, since it's itself an array.
+
+## Iterate with JavaScript Do...While Loops
+
+The next type of loop you will learn is called a `do ... while` loop. It is called a `do ... while`loop because it will first `do`one pass of the code inside the loop no matter what, and then contine to run the loop `while` the specified condition evaluates to `true`.
+
+```js
+var ourArray = [];
+var i = 0;
+do { 
+    ourArray.push(i);
+    i++;
+} while (i<5);
+```
+The example above behaves similar to other types of loops, and the resulting array will look like `[0,1,2,3,4]`. However, that makes the `do...while` different from other loops is how it behaves when the condition fails on the first check. Let's see this in action: here is a regular `while` loop that will run the code inthe loop as long as `i < 5`:
+
+```js
+var ourArray = [];
+var i = 5;
+while (i < 5) {
+    ourArray.push(i);
+    i++;
+}
+```
+
+In this example, we initialize the value of `ourArray` to an empty array and the value of `i` to 5. When we execute `while` loop, the condition evaluates to false because `i` is not less than 5, so we do not execute the code inside the loop. The result is that `ourArray`will end up with no values added to it, and it will still look like `[]` when all of the code in the example above has completed running. Now, take a look at a `do...while`loop:
+```js
+
+var ourArray = [];
+var i = 5;
+do {
+    ourArray.push(i);
+    i++;
+} while (i<5);
+```
+In this case, we initialize the value of `i` to 5, just like we did with the `while` loop. When we get to the next line, there is no condition to evaluate, so we go to the code inside the curly braces and execute it.
+We will add a single element to the array and then increment `i` before we get to the condition check. When we finally evaluate the condition `i < 5` on the last line, we see that `i` is now 6, which fails the conditional check, so we exit the loop and are done. At the end of the above example, the value of `ourArray` is `[5]`. Essentially, a `do...while` loop ensures that the code inside the loop will run at least once.
+
+## Replace Loops using Recursion
+
+Reucrsion is the concept that a function can be expressed in terms of itself.
+
+To help understand this, start by thinking about the following task: multiply the elements from `0` to `n` inclusive in an array to create the product of those elements. Usinga `for` loop, you cold to this:
+```js
+function multiply(arr, n) {
+    var product = arr[0];
+    for (var i = 1; i <= n; i++) {
+        product *= arr[i];
+    }
+    return product;
+}
+```
+
+However, notice that `multiply(arr, n) == multiply (arr, n-1) * arr[n]`.
+
+That means you canr ewrite `multiply` in terms of itself and never need to use a loop.
+
+```js
+function multiply(arr, n) {
+    if (n <= 0){
+        return arr[0];
+    } else {
+        return multiply(arr, n-1) * arr[n];
+    }
+}
+```
+The recursive version of `multiply` breaks down like this. In the base case, where `n <= 0`, it returns the result, `arr[0]`. or larger values of `n`, it calls itself, but with `n - 1`. That function call is evaluated in the same way, calling `multiply` again until `n = 0`. At this point, all the functions can return and the `original` returns the answer.
+
+`Note:` Recursive functions must have a base case when they return without calling the function again (in this example, when `n <= 0`), otherwise they can never finish executing.
+
+```js
+function sum(arr, n) {
+    if (n <= 0) {
+        return arr[0];
+    } else {
+        return sum(arr, n - 1) + arr[n];
+    }
+}
+```
+
+## Profile Lookup
+
+We have an array of objects representing different people in our contacts lists.
+
+A `lookUpProfile` function that takes `name` and a property(`prop`) as arguments has been pre-written for you.
+
+The function should check if `name` is an actual contact's `firstName` and the given property(`prop`) is a property of that contact.
+
+If both are true, then return the "value" of that property.
+
+If `name` does not correspond to ay contacts then return `"No such contact"`.
+
+If `prop` does not correspond to any valid properties of a contact found to match `name`then return `"No such property"`.
+
+```js
+//Setup
+var contacts = [
+    {
+        "firstName": "Akira",
+        "lastName": "Laine",
+        "number": "0543236543",
+        "likes": ["Pizza", "Coding", "Brownie Points"]
+    },
+    {
+        "firstName": "Harry",
+        "lastName": "Potter",
+        "number": "0994372684",
+        "likes": ["Hogwarts", "Magic", "Hagrid"]
+    },
+    {
+        "firstName": "Sherlock",
+        "lastName": "Holmes",
+        "number": "0487345643",
+        "likes": ["Intriguing Cases", "Violin"]
+    },
+    {
+        "firstName": "Kristian",
+        "lastName": "Vos",
+        "number": "unknown",
+        "likes": ["JavaScript", "Gaming", "Foxes"]
+    }
+];
 
 
+function lookUpProfile(name, prop){
+// Only change code below this line
+
+for (var i = 0; i < contacts.length; i++){
+    if (contacts[i].firstName === name) {
+        if (contacts[i].hasOwnProperty(prop)) {
+            return contacts[i][prop];
+        } else {return "No such property"}
+    }
+}
+return "No such contact"; 
+// Only change code above this line
+}
+
+// Change these values to test your function
+lookUpProfile("Akira", "likes");
+
+```
+
+## Generate Random Fractions with JavaScript
+
+Random numbers are useful for creating random behavior.
+
+JavaScript has a `Math.random()` function that generates a random decimal number between `0`(inclusive) and not quite up to `1`(exclusive). Thus `Math.random()`can return a `0` but never quite return a `1`.
+
+**Note**
+Like Storing Values with the Equal Operator, all function calls will be resolved before the `return` executes, so we can `return` the value of the `Math.random()` function.
+
+## Generate Random Whole Numbers with JavaScript
+
+It's great that we can generate random decimal numbers, but it's even more useful if we use it to generate random whole numbers.
+
+1. Use `Math.random()` to generate a random decimal.
+2. Multiply that random decimal by `20`.
+3. Use another function, `Math.floor()` to round the number down to its nearest whole number.
+
+Remember that `Math.random()` can never quite return a `1` and, because we're rounding down, it's impossible to actually get `20`. This technique will give us a wphole number between `0` and `19`.
+
+Putting everthing together, this is what our code looks like:
+
+```js
+Math.floor(Math.random() * 20);
+```
+
+We are alling `Math.random()`, multiplying the result by 20, then passing the value to `Math.floor()` function to round the value down to the nearest whole number.
+
+## Generate Random Whole Numbers within a Range
+
+Instead of generating a random number between zero anda given number like we did before, we can generate a random number that falls within a range of two specific numbers.
+
+To do this, we'll define a minimum number `min` and a maximum number `max`.
+
+Here's the formula we'll use. Take a moment to read it and try to understand taht this code is doing:
+
+```js
+Math.floor(Math.random() * (max - min +1) + min )
+```
+
+## Use the parse Int Function
+
+The `parseInt()`function parses a string and returns an integer. Here's an example:
+
+```js
+var a = parseInt("007");
+```
+The above function vonverts the string "007" to an integer 7. If the first character in the string can't be converted into anumber, then it returns to `NaN`.
+
+## Use the parseInt Function with a Radix
+
+The `parseInt()` function parses a string and returns an integer. It takes a secound argument for the radix, which specifies the base of the number in the string. The radix can be an integer between 2 and 36.
+
+The function call looks like:
+
+```js
+parseInt(string, radix);
+```
+
+And here's an example:
+```js
+var a = parseInt("11", 2);
+```
+
+The radix variable says that "11" is in the binary system, or base 2. This example converts the string "11" to an integer 3.
+
+## Use the Conditional (Ternary) Operator
+
+The *conditional operator*, also called the *ternary operator*, can be used as a one line if-else expression.
+
+The syntax is:
+
+`condition = statement-if-true : statement-if-false;``
+
+The following function uses an if-else statement to check a condition:
+```Js
+function findGreater(a,b) {
+    if (a>b) { 
+        return "a is greater";
+    } else {
+        return "b is greater";
+    }
+}
+```
+This can be re-written using the `conditional operator`:
+```js
+function findGreater(a,b) {
+    return a > b ? "a is greater" : "b is greater";
+}
+```
+## Use Multiple Conditional (Ternary) Operators
+
+In the previous challenge, you used a single conditional operator. You can also chain them together to check for multiple conditions.
+
+The following function uses, if, esle if, and else, statements to check multiple conditions:
+
+```js
+function find GreaterOrEqual (a,b) {
+    if (a===b) { return "a and b are equal";
+    } else if (a > b) {return "a is greater";
+    } else {return "b is greater";
+    }
+}
+```
+
+The above function can be re-written using multiple conditional operators:
+
+```js
+function findGreaterOrEqual(a,b) {
+    return (a === b) ? "a and b are equal" : (a > b) ? "a is greater" : "b is greater";
+}
+```
+## Use Recursion to Create a Countdown
+
+In a previous challenge, you learned how to use recursion to replace a for loop.
+
+Now, let's look at a more complex function that returns an array of consecutive integers starting with `1` through the number passed to the function.
+
+As mentioned in the previous challenge, there will be a `base case`. The base case tells the recursive function when it no longer needs to call itself. It is a simple case where the return value is already known. There will also be a *recursive* call which executes the original function with different arguements. If the function is written correctly, eventually the base case will be reached.
+
+For example, say you want to write a recursive function that returns an array containing the numbers `1` through `n`. This function will need to accept an arguement, `n`, representing the final number. Then it will need to call itself with progressively smaller values of `n` until it reaches `1`. You could write the function as follows:
+
+```js
+
+function countup(n) {
+    if (n<1) {
+        return [];
+    } else {
+        const countArray = countup(n - 1);
+        countArray.push(n);
+        return countArray;
+    }
+}
+
+console.log(countup(5)); // [1,2,3,4,5]
+```
+
+At first, this seems counterintuitive since the value of `n` *decreses*, but the value in the final array are *increasing*. This happens because the push happens last, after the recursive call has returned. At the point where `n` is pushed into the array, `count(n-1)` has already been evaluated and returned `[1,2, ..., n-1]`.
+
+### Solution 1
+```js
+function countdown(n){
+  if (n < 1) { return [];
+  } else {
+    const array = countdown(n-1);
+    array.unshift(n);
+    return array;
+
+  }
+
+}
+console.log(countdown(5)); // [5, 4, 3, 2, 1]
+```
+`.unshift()` is like `.push()` but it adds a value to the front.
+
+### Solution 2
+```js
+function countdown(n) {
+  if (n < 1) {
+    return [];
+  } else {
+    const arr = countdown(n - 1);
+    arr.splice(0, 0, n);
+    return arr;
+  }
+}
+```
+`.splice(start, deleteCount(opt), item1(, item2, ...)(opt) )`
+`Start`: Index at which to start changing the array.
+`deleteCount`: Integer indicating the numbers of elements in the array to remove from `start`.
+`items`: Items that are going to be inserted at the `start` position.
+
+### Solution 3
+```js
+function countdown(n){
+    return n < 1 ? [] : [n].concat(countdown(n-1));
+}
+```
+The `concat()` method is used to merge two or more arrays and returns a new array.
+```js
+const new_array = old_array.concat([value1, valueN])
+```
+
+### Solution 4
+```js
+function countdown(n){
+    return n < 1 ? [] : [n, ...countdown(n-1)];
+}
+```
+The **Spread Operator** (`...`)
+allows an iterable such as an array expression or string to be expanded in places where zero or more arguments (for function calls) or elements (for array literals) are expected, or an object expression to be expanded in where zero or more key-value pairs(for object literals) are expected.
+```js
+var parts = ['shoulder', 'kees'];
+var lyrics = [`head`, ...parts, `and`, `toes`];
+```
+```js
+function sum(x,y,z) { return x + y + z;}
+
+const numbers = [1,2,3];
+
+console.log(sum(...numbers)); // expected output: 6
+
+console.log(sum.apply(null, numbers)); // expected output: 6
+```
+
+**Spread operator** replaces `apply()`
+
+It is common to use `Function.prototype.apply()` in cases where you want to use the elements of an array as arguments to a function.
+```js
+function myFunction(x,y,z) { }
+var args = [0,1,2];
+myFunction.apply(null, args);
+```
+
+## Use Recursion to Create a Range of Numbers
+
+Continuing from the previous challenge, we provide you another opportunity to create a recursive function to solve a problem.
+
+We have defined a function named `rangeOfNumbers` with two parameters. The function should return an array of integers which begins with a number represented by the `startNum` parameter and ends with a number represented by the `endNum` parameter.
+
+The starting number will always be less than or equal to the ending number. Your function must use recursion by calling itself and not use loops of any kind. It should also work for cases where both `startNum` and `endNum`are the same.
+
+```js
+function rangeOfNumbers(startNum, endNum) {
+    return [];
+}
+```
