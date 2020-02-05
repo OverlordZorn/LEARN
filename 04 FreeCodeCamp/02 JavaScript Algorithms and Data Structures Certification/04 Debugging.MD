@@ -1,5 +1,21 @@
 # Debugging
 
+1. [Debugging](#debugging)
+   1. [Introduction to the Debugging Challenges](#introduction-to-the-debugging-challenges)
+   2. [Use the JavaScript Console to Check the Value of a Variable](#use-the-javascript-console-to-check-the-value-of-a-variable)
+   3. [Understanding the Differences between the freeCodeCamp and Browser Console](#understanding-the-differences-between-the-freecodecamp-and-browser-console)
+   4. [Use typeof to Check the Type of a Variable](#use-typeof-to-check-the-type-of-a-variable)
+   5. [Catch Misspelled Variable and Function Names](#catch-misspelled-variable-and-function-names)
+   6. [Catch Unclosed Parentheses, Bracketes, Braces and Quotes](#catch-unclosed-parentheses-bracketes-braces-and-quotes)
+   7. [Catched Mixed Usage of Single and Double Quotes](#catched-mixed-usage-of-single-and-double-quotes)
+   8. [Catch Use of Assignemnt Operator Instead of Equality Operator](#catch-use-of-assignemnt-operator-instead-of-equality-operator)
+   9. [Catch Missing Open and Closin Parenthesis after a Function Call](#catch-missing-open-and-closin-parenthesis-after-a-function-call)
+   10. [Catch Arguments Passed in the Wrong Order When Calling a Function](#catch-arguments-passed-in-the-wrong-order-when-calling-a-function)
+   11. [Catch Off by One Errors When using Indexing](#catch-off-by-one-errors-when-using-indexing)
+   12. [Use Caution When reinitializing Variables Inside a Loop](#use-caution-when-reinitializing-variables-inside-a-loop)
+   13. [Infinite Loops with a Valid Terminal Condition](#infinite-loops-with-a-valid-terminal-condition)
+      1. [Example](#example)
+
 ## Introduction to the Debugging Challenges
 
 Debugging is valuable and (unfortunately) necessary tool for programmers. It follows the testing phase of checking if your code works as intendend, and discovering it does not.

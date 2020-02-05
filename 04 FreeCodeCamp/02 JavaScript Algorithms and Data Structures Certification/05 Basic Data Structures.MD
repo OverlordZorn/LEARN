@@ -1,5 +1,35 @@
 # Basic Data Structure 
 
+1. [Basic Data Structure](#basic-data-structure)
+   1. [Introduction](#introduction)
+   2. [Use an Array to Store a Collection of Data](#use-an-array-to-store-a-collection-of-data)
+   3. [Accessing an Array's Contents Using Bracket Notation](#accessing-an-arrays-contents-using-bracket-notation)
+   4. [Add Items to an Array with push() and unshift()](#add-items-to-an-array-with-push-and-unshift)
+   5. [Remove Items from an Array with pop() and shift()](#remove-items-from-an-array-with-pop-and-shift)
+   6. [Remove Items Using splice()](#remove-items-using-splice)
+   7. [Add Items Using splice()](#add-items-using-splice)
+   8. [Copy Array Items Using slice()](#copy-array-items-using-slice)
+   9. [Copy an Array with the Spread Operator](#copy-an-array-with-the-spread-operator)
+   10. [Combine Arrays with the Spread Operator](#combine-arrays-with-the-spread-operator)
+   11. [Check For The Presence of an Element With indexOf()](#check-for-the-presence-of-an-element-with-indexof)
+      1. [Example](#example)
+   12. [Iterate Through All an Array's Tiems Using For Loops](#iterate-through-all-an-arrays-tiems-using-for-loops)
+      1. [Example](#example-1)
+   13. [Create complex multi-dimensional arrays](#create-complex-multi-dimensional-arrays)
+   14. [Add Key-Value Pairs to JavaScript Objects](#add-key-value-pairs-to-javascript-objects)
+   15. [Modify an Object Nested Within an Object](#modify-an-object-nested-within-an-object)
+   16. [Access Property Names with Bracket Notation](#access-property-names-with-bracket-notation)
+      1. [Example](#example-2)
+   17. [Use the delete Keyword to Remove Object Properties](#use-the-delete-keyword-to-remove-object-properties)
+   18. [Check if an Object has a Property](#check-if-an-object-has-a-property)
+      1. [Example](#example-3)
+         1. [Explaination Every Method](#explaination-every-method)
+   19. [Iterate Through the Keys of an Object with a for...in Statement](#iterate-through-the-keys-of-an-object-with-a-forin-statement)
+      1. [Example](#example-4)
+   20. [Generate an Array of All Object Keys with Object.keys()](#generate-an-array-of-all-object-keys-with-objectkeys)
+   21. [Modify an Array Stored in an Object](#modify-an-array-stored-in-an-object)
+      1. [Excercise](#excercise)
+
 ## Introduction
 
 Data can be stored and accessed in many different ways, both in JavaScript and other languages.
