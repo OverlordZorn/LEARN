@@ -1,42 +1,5 @@
 # Basic Alogrithm Scripting
 
-1. [Basic Alogrithm Scripting](#basic-alogrithm-scripting)
-   1. [Introduction](#introduction)
-   2. [Convert Celsius to Fahrenheit](#convert-celsius-to-fahrenheit)
-   3. [Reverse a String](#reverse-a-string)
-      1. [Solution 1](#solution-1)
-      2. [Solution 2](#solution-2)
-   4. [Factorialize a Number](#factorialize-a-number)
-      1. [Solutions with focus on Recursion](#solutions-with-focus-on-recursion)
-         1. [Possible Solution 2](#possible-solution-2)
-         2. [Possible Solution 3  - Tail Recursion](#possible-solution-3---tail-recursion)
-         3. [Possible Solution 4](#possible-solution-4)
-   5. [Find the Longest Word in a String](#find-the-longest-word-in-a-string)
-      1. [Solutions](#solutions)
-         1. [.Reduce()](#reduce)
-         2. [.map()](#map)
-         3. [Using Recursion](#using-recursion)
-   6. [Return Larest Numbers in Arrays](#return-larest-numbers-in-arrays)
-      1. [Solutions](#solutions-1)
-         1. [Procedural Approach](#procedural-approach)
-         2. [Declarative Approach](#declarative-approach)
-         3. [Declarative Approach](#declarative-approach-1)
-   7. [Confirm The Ending](#confirm-the-ending)
-      1. [Solution - Declarative approach](#solution---declarative-approach)
-      2. [Solution - Regular Expression](#solution---regular-expression)
-   8. [Repeat a string Repeat a String](#repeat-a-string-repeat-a-string)
-      1. [Solution Recursive](#solution-recursive)
-      2. [Declarative approach](#declarative-approach-2)
-   9. [Truncate a String](#truncate-a-string)
-   10. [Finders Keepers](#finders-keepers)
-      1. [Solutions Array.prototype.find()](#solutions-arrayprototypefind)
-         1. [Array.find()](#arrayfind)
-         2. [Array.map()](#arraymap)
-   11. [Boo who](#boo-who)
-         1. [typeof operator](#typeof-operator)
-   12. [Title Case a Sentence](#title-case-a-sentence)
-      1. [Hints](#hints)
-
 ## Introduction
 
 A computer algorithm is a sequence of steps taht is followed to achieve a particular outcome.
@@ -254,7 +217,7 @@ let teststr = "The quick brown fox jumped over the lazy dog.";
 
 ### Solutions
 
-#### .Reduce()
+#### Reduce()
 ```js
 fuction findLongestWordLength(s) {
     return s.split(' ')
@@ -264,7 +227,7 @@ fuction findLongestWordLength(s) {
 }
 ```
 
-#### .map()
+#### map()
 ```js
 function findLongestWordLength(s) {
     return Math.max(...str.split(" ").map(word => word.length));
@@ -544,6 +507,7 @@ Make sure the rest of the words is in lower case.
 For the purpose of this exercise, you should also capitalize connecting words like "the" and "of".
 
 ### Hints
+
 * You should start by splitting the string into an array of words.
 * Split the sentence.
 
@@ -552,4 +516,22 @@ For the purpose of this exercise, you should also capitalize connecting words li
 
 * You will need to create a new string with pieces of the previous one and at the end merge everything into a single string agian.
 * in replace method, give first argument as the position of the first letter using charAt. For second argument write a function to return the capitalized letter as the replacement.
+
+```js
+function titleCase(str) {
+    let f1 = word => {return word[0].toUpperCase() + Word.slice(1);}
+
+    return str.toLowercase().split(" ").map(f1).join(" ");
+}
+```
+
+## Slice and Splice
+
+You are given two arrays and an index.
+
+Use the array methods `slice` and `splice` to copy each element of the first array into the second array, in order.
+
+Begin inserting elements at index `n` of the second array.
+
+Return the resulting array. The input arrays should remain the same after the function runs.
 
