@@ -535,3 +535,238 @@ Begin inserting elements at index `n` of the second array.
 
 Return the resulting array. The input arrays should remain the same after the function runs.
 
+### Hints
+
+#### Hint 1
+ Create a copy of the second array inside of the function. :This will esure that the original array is not mutated. This can be done by using the slice operation on the second array, and assign it to a variable.
+
+#### Hint 2
+
+Loop through all of the items in the first array. For each item in the first array splice it into the copied array in the index given as argument.
+
+#### Hint 3
+
+Increment the index after performing the splice.
+
+### Solutions
+
+#### Solution 1
+
+```js
+function frankenSplice(arr1, arr2, n) {
+    let localArray = arr2.splice();
+    for (let i = 0; i < arr1.length; i++) {
+        localArray.splice(n, 0, arr[i]);
+        n++;
+    }
+    return localArray;
+}
+```
+* Our goal is to take all of the elements from `arr1` and insert them into `arr2` starting with index position `n`. At the same time we must ensure that neither `arr` or `arr2` have been mutated.
+* Using the `slice()` function we can create an exact replica of `arr2` and assign the result of the operation to a variable, `localArray`.
+* Now that we have an array that we can mutate on, we can iterate through every item in the first array. For each item in the first array we can use the `splice()` function to insert the item into index of `localArray`.
+* We increment the index `n` by one. This will esure that every item from the `arr1` is inserted into `localArray` in the proper index position.
+* Finally, we return the `localArray` and end the function.
+
+#### Solution 2
+
+```js
+function frankenSplice(arr1, arr2, n) {
+    let localArr = arr2.slice();
+    localArr.splice(n, 0, ...arr1);
+    return localArr;
+}
+```
+* Since our goal is to return the new array without altering `arr1` or `arr2` we create a `localArr` and add all the items fro `arr2`using the `slice()` function.
+* Since the `splice()` function will mutate (alter) arrays and can be used to add new elements we will use it to add the contents of `arr1` into `localArr`. `n` is the starting position where our content will be inserted. We won't be deleting any elements so the next argument is `0`. Then we add the entire contents of `arr1` using spread syntax `...`.
+* `localArr` is returned and the function is complete.
+
+## Falsy Bouncer
+
+Remove all falsy values from an array.
+
+Falsy values in JavaScript are `false`, `null`, `0`, `""`, `undefined`, and `NaN`.
+
+Hint: Try converting each value to a Boolean.
+
+```js
+function bouncer(arr) {
+    return arr.filter(x => !x == false);
+}
+```
+
+### Hints
+#### Hint 1
+Falsy is something which evaluates to FLASE. There are only six falsy values in JavaScript: ...
+#### Hint 2
+We need tomake sure we have all the falsy values to compare, we can know it, maybe with a function with all the falsy values...
+#### Hint 3
+Then we need to add a `filter()` with the falsy values function ...
+
+### Solutions
+
+#### Solution 1
+```js
+function bouncer(arr) {
+    let newArray = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i]) newArray.push(arr[i]);
+    }
+    return newArray;
+}
+```
+* We create a new empty array.
+* We use a for cycle to iterate over all elements of the provided array (arr).
+* We use the if statement to check if the current element is `truthy` or `falsy`.
+* If the element is truthy, we push it to the new array (newArray). This result in the new array containing only tuthy elements.
+* We return the new array.
+
+#### Solution 2
+```js
+function bouncer(arr) {
+    return arr.filter(Boolean);
+}
+```
+* The `Array.prototype.filter` method expects a function that returns a `Boolean` value which takes a single argument and returns `true` for `truthy` values or `false` for falsy value. 
+* Hence we pass the built-in `Boolean` function.
+
+## Where do I belong
+
+Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted. The returned value should be a number.
+
+For example, `getIndexToIns([1,2,3,4], 1.5)` should return `1` because it is greater than `1` (index 0), but less than `2` (index 1).
+
+Likewise `getIndexToIns([20,3,5],19)` should return `2`because once the array has been sorted it will look like `[3,5,20]` and `19` is less than `20` (index 2) and greater than `5` (index 1).
+
+```js
+function getIndexToins(arr, num) {
+    function f1(a,b) {return a - b};
+    function f2(a) {return a === num};
+    arr.push(num);
+    return arr.sort(f1).findIndex(f2);
+}
+```
+### Hints
+This can be a tricky problem to understand. You need to find where in the array a number should be inserted by order, and return the index where it should go.
+
+#### Hint 1
+The first thing to do is sort the array from lower to bigger, just to make the code easier.
+This is where sort comes in, it needs a callback function so you have to create it.
+
+#### Hint 2
+Once the array is sorted, then just check for the first number that is bigger and return the index.
+
+#### Hint 3
+If there is no index for that number then you will have todeal with that case too.
+
+### Solutions
+#### Solution 1
+```js
+function getIndexToIns(arr,num) {
+    arr.sort(function(a,b) {return a-b;});
+
+    for (var a = 0; a < arr.length; a++) {
+        if (arr[a] >= num) return a;
+    }
+
+    return arr.length;
+}
+```
+* First I sort the array using `.sort(callbackFunction)` to sort it by lowest to hightest, from left to right.
+* Then I use a for loop to compare the items in the array starting from the smallest one. When an item on the array is greater than the number we are compairing against, then we return the index as an integer.
+
+#### Solution 2
+```js
+function getIndexToIns(arr,num) {
+    // Find my place in this sorted array.
+    var times = arr.length; // runs the for Loop once for each thint in the array
+    var count = 0;
+    for (var i = 0; i < times; i++) {
+        if (num > arr[i]) {count++;}
+    } // counts how many array numbers are smaller than num
+    return count; // the above equals num's position in a osrted array
+}
+```
+* I do not sort the array input array
+* I run a for loop counting whenever the num input is bigger than an arr input number
+* This number is equivalent to what num's position would be in a sorted array.
+
+#### Solution 3
+```js
+function getIndexToIns(arr,num) {
+   arr.sort(function(a,b){return a-b;});
+   
+   var i = 0;
+   while (num > arr[i]) {
+       i++;
+   }
+   return i;
+}
+```
+* Sort existing array.
+* Iterate through the array while checking if num is bigger.
+* The loop will stop when num is'nt bigger than i and return the last element checked.
+
+#### Solution 4
+```js
+function getIndexToIns(arr,num) {
+   arr.push(num);
+   arr.sort((a,b) => {return a-b;});
+   return arr.indexOf(num); 
+}
+```
+* First we add the number `num` to the array using `push()`which adds it as the last element of the array.
+* Then we use `sort()` with the callback function `(a,b) => {return a-b}`to sort the number sin ascending order.
+* Lastly we return the position or index of `num` in the array with the `indexOf()` function.
+
+#### Solution 5
+```js
+function getIndexToIns(arr,num) {
+   // sort and find right index
+   var index = arr
+        .sort((curr,next)=>{return current - next})
+        .findIndex(curr => num <= curr);
+    // retunrs proper answer
+    return index === -1 ? arr.length : index;
+}
+```
+* First sort the array in ascending order, this is currently done using array functions for minimal footprint.
+* Once the array is sorted, we directly apply the `findIndex()` where we are going to compare every element in the array until we find where `num <= curr` meaning where the number we want to insert is less or equal to the current number in the iteration.
+* Then we use ternary operations to check wheter we got an index returned or `-1`. We only get `-1` when the index was not found meaning when we get a false for all elements in the array, and for such case, it would mean that `num`should be inserted at the end of the list hence why we use `arr.length`.
+
+#### Solution 6
+```js
+function getIndexToIns(arr,num) {
+   return arr
+        .concat(num)
+        .sort((a,b) => a - b)
+        indexOf(num); 
+}
+```
+* We use method-chaining to invoke one method after another to solve the problem in a single line.
+* First we merge `arr` and `num` by invoking the `arr.concat(num)` method.
+* Then wie use `sort((a,b)=> a-b)`to sort the numbers in ascending order
+* Lastly we return the position or index in the array with `indexOf(num)`
+
+#### Solution 7
+```js
+function getIndexToIns(arr,num) {
+   return arr.filter(val => num > val).length; 
+}
+```
+* Similar to solution #2 but uses the filter method to achieve the same result
+
+## Mutations
+Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
+
+For example, `["hello", "Hello"]`, should return true because all of the letters in the second string are present in the first, ignoring case.
+
+The arguments `["hello", "hey"]` should return false because the string "hello" does not contain a "y".
+
+Lastly, `["Alien", "line"]`, should return true because all of the letters in "line" are present in "Alien".
+
+```js
+function mutation(arr) {
+    
+}
+```
