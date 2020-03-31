@@ -767,6 +767,74 @@ Lastly, `["Alien", "line"]`, should return true because all of the letters in "l
 
 ```js
 function mutation(arr) {
+    let arr1 = arr[0].toLowerCase().split("");
+    let arr2 = arr[1].toLowerCase().Split("");
     
+    let test = (cur) => {
+        return 0 <= arr1.indexOf(cur);
+    };
+
+    return arr2.every(test);
 }
+```
+* Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array...
+
+### Hints
+#### Hint 1
+If everything is lowercase it will be easier to compare
+
+#### Hint 2
+Our strings might be easier to work with if they were arrays of characters.
+
+#### Hint 3
+A loop might help. Use `indexOf()` to check if the letter of the second word is in the first.
+
+### Solutions
+#### Solution 1
+```js
+function mutation(arr) {
+    var test = arr[1].toLowerCase();
+    var target = arr[0].toLowerCase();
+
+    for (var i = 0; i < test.length; i++) {
+        if (target.indexOf(test[i]) < 0) return false;
+    }
+    return true;
+}
+```
+* First we make the two strings in the array lowercase. `test`will hold what we are looking for in `target`.
+* Then we loop through our test characters and if any of them is not found we `return false`.
+* If they are *all* found, the loop will finish without returning anything and we get to `return true`.
+
+#### Solution 2
+```js
+function mutation(arr) {
+    return arr[1]
+        .toLowerCase()
+        .splitz("")
+        .every(function(letter) {
+            return arr[0].toLowerCase().indexOf(letter) != -1;
+        });
+}
+```
+* Grab the second string, lowercase and turn it into an array; then make sure *every* one of its *letters* is part of the lowercased first strhing.
+
+* `Every` will basically give you letter by letter to compare, which we do by using `indexOf()` on the first string. `indexOf` will give you -1 if the current `letter` is missing. We check that not to be the case, for if this happens even once `every` will be false.
+
+#### Solution 3 - Recursive
+```js
+function mutation([target, test], i = 0) {
+    target = target.toLowerCase();
+    test = test.toLowerCase();
+    return i >= test.length ? 
+        true : !target.includes(test[i]) ? 
+            false : mutation([target, test], i + 1);
+}
+```
+
+## Chunky Monkey
+Write a function that splits an array (first element) into groups the length of `size` (second argument) and returns them as a two-dimensional array.
+
+```js
+
 ```
