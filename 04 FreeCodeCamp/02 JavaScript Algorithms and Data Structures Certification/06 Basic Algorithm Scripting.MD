@@ -843,7 +843,7 @@ function chunkArrayINGroups(arr, size) {
 
     if (arr.length > 0) {
         result.push(
-            ...chunkArrayInGroups(arr,size);
+            ...chunkArrayInGroups(arr,size)
         );
     }
 
@@ -880,4 +880,67 @@ return result;
 
 
 #### Solution 2
+```js
+function chunkArrayInGroups(arr,size) {
+    var arr2 = [];
+    for (var i = 0; i < arr.length; i += size) {
+        arr2.push(arr.slice(i,i+size));
+    }
+    return arr2;
+}
+```
+* First, we create an empty array `arr2` where we will store our 'chunks'.
+*The for loop starts at zero, increments by `size` each time through the loop, and stops when it reaches `arr.length`.
+* Note that this for loop does not loop through `arr`. Instead, we are using the loop to generate numbers we can use as indicates to slice the array in the right locations.
+* Inside our loop, we create each chunk using `arr.slice(i,i+size)`, and add the value to `arr2` with `arr2.push()`.
+* Finally, we return the value of `arr2`.
 
+#### Solution 3
+```js
+function chunkArrayInGroups(arr,size) {
+    var newArr = [];
+    var i = [];
+
+    while (i < arr.length) {
+        newArr.push(arr.slice(i, i+size));
+        i += size;
+    }
+    return newArr;
+}
+```
+* Firstly, we create two variables. `newArr` is an empty array which we will push to. We also have the `i` variable set to zero, for use in our while loop.
+* Our while loop loops until `i` is equal to or more than the length of the array in our test.
+* Inside our loop, we push to the `newArr` array using `arr.slice(i, i+size)`.  For the first time it loops, it will look something like: `newArr.push(0,0+2)));
+* After we push to `newArr`, we add the variable of `size` onto `i`.
+* Finally, we return the value of `newArr`.
+
+#### Solution 4
+```js
+function chunkArrayInGroups(arr,size) {
+    var newArr = [];
+    while (arr.length) {
+        newArr.push(arr.splice(0,size));
+    }
+    return newArr;
+}
+```
+* Firstly, we create a variable. `newArr` is an empty array which we will push to.
+* Our `while` loop loops until the length of the array in our test is not 0.
+* inside our loop, we push the `newArr` array using `arr.splice(0,size)`.
+* For each iteration of `while` loop, it deletes `size` number of elements from the front of `arr` and push them as an new array to `newArr`.
+* Finally, we reutrn the value of `newArr`.
+
+#### Solution 5
+```js
+function chunkArrayInGroups(arr,size) {
+    if (arr.length <= size) {
+        return [arr];
+    } else {
+        return [arr.slice(0,size)].concat(
+            chunkArrayInGroups(arr.slice(size), size)
+            );
+    }
+}
+```
+* Array smaller than size is returned nested.
+* For any array larger than size, it is split in two. First Segment is ntested and concatenated with second segment which makes a recursive call.
