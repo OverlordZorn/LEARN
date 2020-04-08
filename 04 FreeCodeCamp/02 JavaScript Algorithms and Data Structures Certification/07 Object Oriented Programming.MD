@@ -500,3 +500,170 @@ By setting the prototype of `animal` to be `Animal's prototype`, you are effecti
 animal.eat(); // prints "nom nom nom"
 animal instance of Animal; // returns true
 ```
+
+## Set the Child's Prototype to an Instance of the Parent
+
+In the previous challenge you saw the first step for inheriting behavior from the supertype (or parent) `Animal`: making a new instance of `Animal`.
+
+This challenge covers the next step: set the `prototype` of the subtype (or child) - in this case, `Bird` - to be an instance of `Animal`.
+
+```js
+Bird.prototype = Object.create(Animal.prototype);
+```
+
+Remember that the `prototype` is like the "recipe" for creating an object. In a way, the recipe for `Bird` now includes all the key "ingredients" from `Animal`.
+
+```js
+let duck = new Bird("Donald");
+duck.eat(); // prints "nom nom nom"
+```
+`duck` inherits all of `Animal`'s properties, including the `eat` method.
+
+## Reset an Inherited Constructor Property
+
+When an object inherits its `prototype` from another object, it also inherits the supertype's constructor property.
+
+Here's an example:
+```js
+function Bird() {}
+Bird.prototype = Object.create(Animal.prototype);
+let duck = new Bird();
+duck.constructor // function Animal () {...}
+```
+
+But `duck` and all instances of  `Bird` should show that they were constructed by `Bird` and not `Animal`. To do so, you can manually set `Bird's` constructor property to the `Bird`object:
+
+```js
+Bird.prototype.constructor = Bird;
+duck.constructor // function Bird() {...}
+```
+
+## Add Methods After Inheritance
+
+A constructor function that inherits its `prototype` object from a supertype constructor function can still have its own methods in addition to inherited methods.
+
+For example, `Bird` is a constructor that inherits its `prototype` from `Animal`:
+```js
+function Animal() { };
+Animal.prototype.eat = function () {console.log("nom nom nom");};
+
+function Bird() {}
+Bird.prototype = Object.create(Animal.prototype);
+Bird.prototype.constructor = Bird;
+```
+
+In addition to what is inherited from `Animal`, you want to add behavior that is unique to `Bird` objects.
+
+Here, `Bird` will get a `fly()` function. Functions are added to `Bird's` `prototype` the same way as any constructor function:
+```js
+Bird.prototype.fly = function() {
+	console.log("I'm flying!");
+};
+```
+
+Now instances of `Bird` will have both `eat()` and `fly()` methods:
+
+```js
+let duck = new Bird();
+duck.eat(); // prints "nom nom nom"
+duck.fly(); // prints "I'm flying!"
+```
+
+## Override Inherited Methods
+
+In previous lessons, you learned that an object can inherit its behavior (methods) from another object by referencing its `prototype` object:
+
+```js
+ChildObject.prototype = Object.create(ParentObject.prototype);
+```
+
+Then the `ChildObject`recieved its own methods by chainging them onto its `prototype`:
+
+```js
+ChildObject.prototype.methodName = function() {...};
+```
+
+It's possible to override an inherited method. It's done the same way - by adding a method to `ChildObject.prototype` using the same method name as the one to override.
+
+Here's an example of `Bird` overriding the `eat()` method inherited from `Animal`:
+
+```js
+function Animal() {};
+Animal.prototype.eat = function() {return "nom nom nom"};
+
+function Bird() {};
+
+// Inherit all methods from Animal
+Bird.prototype = Object.create(Animal.prototype);
+
+// Bird.eat() overides Animal.eat()
+Bird.prototype.eat = function() {
+	return "peck peck peck";
+};
+```
+
+If you ahve an instance `let duck = new Bird();` and you call `duck.eat()`, this is how JavaScript looks for the mthod on `duck's` `prototype` chain:
+
+1. duck => Is eat() defined here? No.
+2. Bird => Is eat() defined here? Yes. Execute it and stop searching.
+3. Animal => eat() is also defined, but JavaScript stopped searching before reaching this level.
+4. Object => JavaScript stopped searching before reaching this level.
+
+## Use a Mixin to Add Common Behavior Between Unrelated Objects
+
+As you have seen, behavior is shared through inheritance.
+
+However, there are cases when inheritance is not the best solution.
+
+Inheritance does not work well for unrlated objects like `Bird` and `Airplane`.
+
+They both can fly, but a `Bird` is not a type of `Airplane` and vice versa.                                                                                    
+
+For unrealted objects, it's better to use *mixins*.
+
+A mixin allows other objects to use a collection of functions.
+
+```js
+let flyMixin = function(obj) {
+	obj.fly = function() {
+		console.log("Flying, woosh!");
+	}
+};
+```
+The `flyMixin` takes any object and gives it the `fly` method.
+
+```js
+let bird = {
+	name: "Donald",
+	numLegs: 2
+};
+
+let plane = {
+	model: "777",
+	numPassengers: 524
+};
+
+flyMixin(bird);
+flyMixin(plane);
+```
+
+Here `bird` and `plane` are passed into `flyMixin`, which then assigns the `fly` function to each object. Now `bird` and `plane` can both fly:
+
+```js
+bird.fly(); // prints: "Flying, woosh!"
+plane.fly(); // prints: "Flying, woosh!"
+```
+Nothe how the mixin allows for the same `fly` method to be reused by unrelated objects `bird` and `plane`.
+
+## Use Closure to Protext Properties Within an Object from Being Modified Externally
+
+In the previous challenge, `bird` had a public property `name`. It is considered public because it can be accessed and changed outside of `bird`'s definition.
+
+```js
+bird.name = "Duffy";
+```
+
+Therefore, any part of your code can easily change the name of `bird` to any value.
+
+Think about things like passwords and bank accounts being easily changeable by any part of your codebase. That could cause a lot of issues.
+
