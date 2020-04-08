@@ -666,4 +666,3 @@ bird.name = "Duffy";
 Therefore, any part of your code can easily change the name of `bird` to any value.
 
 Think about things like passwords and bank accounts being easily changeable by any part of your codebase. That could cause a lot of issues.
-
