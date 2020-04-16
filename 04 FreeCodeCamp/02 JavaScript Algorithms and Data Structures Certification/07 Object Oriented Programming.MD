@@ -190,7 +190,7 @@ let duck = new Bird("Donald");
 let canary = new Bird("Tweety");
 ```
 
-`name` and `numLegs` are called `own` properties, because they are defined idrectly on the instance object. That means that `duck` and `canary` each has its own seperate copy of these properties.
+`name` and `numLegs` are called `own` properties, because they are defined directly on the instance object. That means that `duck` and `canary` each has its own seperate copy of these properties.
 
 In fact every instance of `Bird` will have its own copy of these properties.
 
