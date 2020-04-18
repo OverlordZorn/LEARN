@@ -228,7 +228,7 @@ console.log(duck.numLegs); // 2
 console.log(canary.numLegs); // 2
 ```
 
-Since all instances automatically have the properties on the `prototype`, think of a `prototype` as a "recipe" for creatign objects. Note that the `prototype` for `duck` and `canary` is part of the `Bird` constructor as `Bird.prototype`. Nearly every object in JavaScript has a `prototype` property which is part of the constructor function that created it.
+Since all instances automatically have the properties on the `prototype`, think of a `prototype` as a "recipe" for creating objects. Note that the `prototype` for `duck` and `canary` is part of the `Bird` constructor as `Bird.prototype`. Nearly every object in JavaScript has a `prototype` property which is part of the constructor function that created it.
 
 ### Example
 ```js
@@ -306,7 +306,7 @@ function joinBirdFraternity(candidate) {
 **Note**
 Since the `constructor` property can be overwritten (which will be covered in the next wo challenges) it's generally better to use the `instanceof` method to check the type of an object.
 
-## Change the Prototype to an New Object
+## Change the Prototype to a new Object
 
 Up until now you ahve been adding properties to the `prototype` individually:
 
