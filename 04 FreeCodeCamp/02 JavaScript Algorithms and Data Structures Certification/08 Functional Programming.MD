@@ -354,6 +354,12 @@ It would teach us a lot about `map` to try to implement a version of it that beh
 Write your own `Array.prototype.myMap()`, which should behave exactly like `Array.prototype.map()`.
 You may use a a `for` loop or the forEach method.
 
+### Solutions
+#### Solution 1 - forEach()
+* Solve this challenge using `this` and the forEach method
+* The `this` keyword gives us access to the object we are calling myMap on.
+* From there we can use the forEach method to add elements to already declared empty array as we modify each element with the given callback method.
+
 ```js
 //The global variable
 var s = [23, 65, 98, 5];
@@ -361,7 +367,7 @@ var s = [23, 65, 98, 5];
 Array.prototype.myMap = function(callback){
     var newArray = [];
     // Only change code below this line
-
+    this.forEach(a => newArray.push(callback(a)));
     // Only change code above this line
 
     return newArray,
@@ -370,4 +376,29 @@ Array.prototype.myMap = function(callback){
 var new_s = s.myMap(function(item) {
     return item * 2;
 });
+```
+
+#### Solution 2 - for loop
+* Solve this challenge using a for loop and `this`
+* The use of a for loop allows us to apply the callback function to every item in a the Global array and then push the modified items to the empty new array that is returned in the end.
+
+```js
+// The global Array
+var s = [23, 65, 98, 5];
+
+Array.prototype.myMap = function(callback) {
+    var newArray = [];
+
+    // Add your code below this line
+
+    for (let i = 0; i < this.length; i++) {
+        newArray.push(callback(this[i]));
+    }
+
+
+    // Add your code above this line
+    return newArray;
+};
+
+var new_s = s.myMap(function(item) {return item * 2;});
 ```
