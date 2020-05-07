@@ -305,6 +305,69 @@ The `watchList` array holds objects with information on several movies. Use `map
 
 var watchList = [{...},{...},...];
 
-var ratings = [];
+var ratings = watchList.map(
+    x => ({
+        title: x.Title,
+        rating: x.imdbRating
+    })
+);
+
+
 
 console.log(JSON.stringify(ratings));
+
+```
+
+### Other Solutions
+#### Solution 1
+```js
+const ratings = watchList.map(item => ({
+    title: item["Title"],
+    rating: item["imdbRating"]
+}));
+```
+Using ES6 notation, each item in an array is processed to extract title and rating.
+Parantheses are needed to return an object.
+
+#### Solution 2
+Using parameter destructuring, the title and rating are extracted and returned in an object.
+```js
+const ratings = watchList.map(({
+    Title: title,
+    imdbRating: rating
+    }) => ({title, rating});
+```
+
+## Implement map on a Prototype
+
+As you have seen from applying `Array.prototype.map()`, or simply `map()` earlier, the `map` method returns an rray of the same length as the one it was called on.
+
+It also doesn't alter the original array, as long as its callback function doesn't.
+
+In other words, `map` is a pure function, and its output depends solely on its input. Plus, it takes another function as its argument.
+
+It would teach us a lot about `map` to try to implement a version of it that behaves exactly like the `Array.prototype.forEach()`.
+
+*Note*: A pure function is allows to alter local variables defined within its scope, although, it's preferable to avoid that as well.
+
+### Exercise
+Write your own `Array.prototype.myMap()`, which should behave exactly like `Array.prototype.map()`.
+You may use a a `for` loop or the forEach method.
+
+```js
+//The global variable
+var s = [23, 65, 98, 5];
+
+Array.prototype.myMap = function(callback){
+    var newArray = [];
+    // Only change code below this line
+
+    // Only change code above this line
+
+    return newArray,
+};
+
+var new_s = s.myMap(function(item) {
+    return item * 2;
+});
+```
