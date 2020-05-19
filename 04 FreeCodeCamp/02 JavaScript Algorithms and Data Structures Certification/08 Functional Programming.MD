@@ -402,3 +402,287 @@ Array.prototype.myMap = function(callback) {
 
 var new_s = s.myMap(function(item) {return item * 2;});
 ```
+
+#### Solution 3 - recursion
+
+```js
+// The global Array
+var s = [...];
+
+Array.prototype.myMap = function(callback, arr = [], i = 0) {
+    return i < this.length
+    ? this.myMap(callback, arr.concat(callback(this[i])), i+1)
+    : arr;
+};
+
+var new_s = s.myMap(function(item)) {
+    return item * 2;
+}
+```
+
+## Use the filter Method to Extract Data from an Array
+
+Another useful array function is `Array.prototype.filter()`, or simply `filter()`.
+
+`filter` calls a function on each element of an array and returns a new array containing only the elements for which that function returns `true`.
+
+In other words, it filters the array, based on the function passed to it.
+
+Like `map`, it does this without needing to modify the original array.
+
+The callback function accepts three arguments.
+
+The frist argument is the current eleent being processed. The second is the index of that element and the third is the array upon which the `filter` method was called.
+
+See below for an example using the `filter` method on the `users` array to return a new array containing only the users under the age of 30. For simplicity, the example only uses the first argument of the callback.
+
+```js
+const users = [
+    { name: "John", age: 34 },
+    { name: "Amy", age: 20 },
+    { name: "camperCat", age: 10 }
+];
+
+const usersUnder30 = users.Filter(user => user.age < 30);
+console.log(usersUnder30); 
+// [{name: "Amy", age: 20}, {name: "camperCat", age: 10}]
+```
+
+### Excercise
+
+The variable `watchList` holds an array of objects with information on several movies. Use a combination of `filter` and `map` on `watchList` to assign a new array of objects with only `title` and `rating` keys. The new array should only include objects where  `imdbRating` is greater than or equal to 8.0. Note that the rating values are saved as strings in the object and you may need to convert them into numbers to perform mathematical operations on them.
+
+```js
+// The global variable 
+
+var watchList = [    {...:...}, {}, ...    ];
+
+let fnc_a = function(a) {
+    return {title: a.Title, rating: a.imdbRating };
+};
+
+let fnc_b = function (b) {
+    return Number(b.rating) >= 8;
+};
+
+var filteredList = watchList.map(fnc_a).filter(fnc_b);
+
+console.log(filteredList);
+```
+
+### Solution
+#### Solution 1
+In the beginner solution we're mapping over the watchList array to reduce the amount of data we have to work with and only returning the two items we need.
+
+Once we've reduced the items to what we're interested in (Title and imdbRating) we're filtering through and only returning the remaining items that meet the critertia.
+
+In this case it's having an imdbRating of 8.0 or higher.
+
+```
+see excercise
+```
+#### Solution 2
+```js
+var filteredList = watchList
+    .map(function(e) {
+        return {title: e["Title"], rating: e["imdbRating"] };
+    })
+    .filter(e => e.rating >= 8);
+```
+
+## Implement the filter Method on a Prototype
+
+It would teach us a lot about the `filter` method if we try to implement a version of it that behaves exactly like `Array.prototype.filter()`.
+
+It can use either a `for` loop or `Array.prototype.forEach()`.
+
+Note: A pure function is allowed to alter local variables defined within its scope, although, it's preferable to avoid that as well.
+
+### Excercise
+Write your own `Array.prototype.myFilter()`, which should behave exactly like `Array.prototype.filter()`. You may use a for loop or the `forEach()` method.
+
+```js
+// The global variable
+var s = [23, 65, 98, 5];
+
+Array.prototype.myFilter = function(callback) {
+
+    var newArray = [];
+    let fnc_a = function(a) {
+        if ( callback(a) ) {
+            newArray.push(a)
+        }
+    }
+
+    this.forEach(fnc_a);
+
+};
+
+var new_s = s.myFilter(function(item){
+    return item % 2 === 1;
+});
+```
+
+### Solutions
+#### forEach()
+```js
+Arrayprototype.myFilter = function(callback) {
+    let newArray = [];
+
+    this.forEach( function(x) {
+        if (callback(x)) {
+            newArray.push(x);
+        }
+    });
+    return newArray;
+}
+```
+
+## Return Part of an Array Using the slice Method
+
+The `slice` method returns a copy of certain elements of an array. It can take two arguments, 
+
+the first gives the index of where to begin the slice, 
+
+the second is the index for where to end the slice ( and it's non inclusive).
+
+If the arguements are not provided, the default is to start at the beginning of the array through the end, which is an easy way to make a copy of the entire array. The `slice` method does not mutate for original array, but returns a new one.
+
+Here is an example: 
+```js
+var arr = ["Cat", "Dog", "Tiger", "Zebra"];
+var newArray = arr.slice(1,3);
+// sets new Array to ["Dog", "Tiger"] 
+```
+
+### Excercise
+Use the `slice()` method in the `sliceArray` function to return part of the `anim` array given the provided `beginSlice` and `endSlice` indices.
+The function should return an array.
+
+```js
+function sliceArray(anim, beginSlice, endSlice) {
+    return anim.slice(beginSlice, endSlice);
+}
+
+var inputAnim = ["Cat", "Dog", "Tiger", "Zebra", "Ant"];
+
+sliceArray(inputAnim, 1,3);
+```
+
+## Remove Elements from an Array Using slice Instead of splice
+
+A common pattern while working with arrays is when you want to remove items and keep the rest of the array. 
+JavaScript ofers the `splice` method for this, which takes arguments for the index of where to start removing items, then the number of items to remove.
+
+If the second argument is not provided, the default is to remove items through the end.
+
+However, the `splice` method mutates the original array it is called on.
+
+Here's an example:
+```js
+var cities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
+cities.splice(3,1);
+// cities is now ["Chicago", "Delhi", "Islamabad", "Berlin"]
+```
+
+As we saw in the last challenge, the `slice` method does not mutate the original array, but returns a new one which can be saved into a variable.
+
+Recall that the `slice` method takes two arguments for the indicies to begin and end the slice (the end is non-inclusive), and returns those items in a new arry. Using the `slice`method instead of `splice` helps to avoid any array-mutating side effects.
+
+
+### Excercise
+
+Rewrite the function `nonMutatingSplice`by using `slice` instead of `splice`. It should limit the provided `cities` array to a length of 3, and return a new array with only the first three items.
+
+Do not mutate the original array provided to the function.
+
+```js
+function nonMutatingSplice(cities) {
+    return cities.slice(0,3);
+}
+
+var inputCities = ["Chicago", "Delhi", "Islamabad", "London", "Berlin"];
+
+nonMutatingSplice(inputCities);
+```
+
+## Combine Two Array Using the concat Method
+
+*Concatenation* means to join items end to end. JavaScript offers the `concat` method for both strings and arrays that work in the same way. For arrays, the method is called on one, then another array is provided as the argument to `concat`, which is added to the end of the frist array. 
+
+It returns a new array and does not mutate either of the original arrays. Heres an example:
+
+```js
+[1,2,3].concat[4,5,6];
+// returns a new array [1,2,3,4,5,6]
+```
+
+## Add Elements to the End of an Array Using concat instead of push
+
+Functional programming is all about creating and using non-mutating functions.
+
+The last challenge introduced the `concat` method as a way to combine arrays into a new one without mutating the original arrays.
+
+Compare `concat` to the `push` method. `Push` adds an item to fthe endo fthe same array it is called on, which mutates that array. Here's an example:
+
+```js
+var arr = [1,2,3];
+arr.push([4,5,6]);
+// arr is changed to [1,2,3, [4,5,6]];
+// not the functional programming way
+```
+
+`Concat` offers a way to add new items to the end of an array without any mutating side effects.
+
+## Use the reduce Method to Analyze Data
+
+`Array.prototype.reduce()`, or simply `reduce()`, is the most general of all array operations in JavaScript. You can solve almost any array processing problem using the `reduce` method.
+
+The `reduce` method allows for more general forms of array processing, and it's possible to show that both `filter` and `map` can be derived as special applications of `reduce`. The `reduce` method iterates over each item in an array nd returns a single value (i.e. string, number, object, array).
+
+This is achieved via a callback function that is called on each iteration.
+
+The callback function accepts four arguments.
+
+The first argument is known as the accumulator, which gets assigned the return value of the callback function from the previous iteration, the second is the current element being processed, the third is the index of that element and the fourth is the array upon which `reduce` is called.
+
+In addition to the callback function, `reduce` has an additional parameter which takes an initial value for the accumulator.
+
+If this second parameter is not used, then the first iteration is skipped and the second iteration gets passed the frist element of the array as the accumulator.
+
+See below for an example using `reduce` on the `users` array to return the sum of all users' age.
+
+For simplicity, the example only uses the first and second arguments.
+
+```js
+const users = [
+    {name: 'John', age: 34},
+    {name: 'Amy', age: 20},
+    {name: 'camperCat', age: 10}
+];
+
+const sumOfAges = users.reduce((sum, user) => sum + user.age, 0);
+console.log(sumOfAges); // 64
+```
+In another example, see how an object can be retruned containing the names of the users as properties with their ages as values.
+
+```js
+const users = [...];
+
+const usersObj = users.reduce((obj, user) => {
+    obj[user.name] = user.age;
+    return obj;
+}, {});
+console.log(userObj); // {John: 34, Amy: 20, camperCat: 10}
+```
+
+### Excercise
+The variable `watchList` holds an array of objects with information on several movies.
+
+Use `reduce` to find the average IMDB rating of the movies **directed by Christopher Nolan**. Recall from prior challenges how to `filter` data and `map` over it to pull what you need. You ay need to create other variables, and return the average rating from `getRating` function.
+
+Note that the rating values are saved as strings in the object and need to be converted into numbers before they are used in any mathematical operations.
+
+```js
+
+```
