@@ -28,7 +28,7 @@
       1. [Example](#example-4)
    20. [Generate an Array of All Object Keys with Object.keys()](#generate-an-array-of-all-object-keys-with-objectkeys)
    21. [Modify an Array Stored in an Object](#modify-an-array-stored-in-an-object)
-      1. [Excercise](#excercise)
+      1. [Exercise](#Exercise)
 
 ## Introduction
 
@@ -665,7 +665,7 @@ Additionally, the Data Structures lessons located in the Coding Interview Prep s
 
 Now that you've learned the basics of arrays and objects, you're fully prepared to begin tackling more complex problems using JavaScript!
 
-### Excercise
+### Exercise
 
 Take a look aththe object we've provided. The `user` object contains three keys. The `data` key contains five keys, one of which contains an array of `friends`. From this, you can see how flexible objects are as data structures. We've started writing a function `addFriend`. Finish writing it so that it takes a `user` object and adds the name of the `friend` argument to the array stored in `user.data.friends` and returns that array.
 

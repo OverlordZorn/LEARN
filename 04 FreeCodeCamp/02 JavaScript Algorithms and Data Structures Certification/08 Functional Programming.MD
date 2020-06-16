@@ -448,7 +448,7 @@ console.log(usersUnder30);
 // [{name: "Amy", age: 20}, {name: "camperCat", age: 10}]
 ```
 
-### Excercise
+### Exercise
 
 The variable `watchList` holds an array of objects with information on several movies. Use a combination of `filter` and `map` on `watchList` to assign a new array of objects with only `title` and `rating` keys. The new array should only include objects where  `imdbRating` is greater than or equal to 8.0. Note that the rating values are saved as strings in the object and you may need to convert them into numbers to perform mathematical operations on them.
 
@@ -479,7 +479,7 @@ Once we've reduced the items to what we're interested in (Title and imdbRating) 
 In this case it's having an imdbRating of 8.0 or higher.
 
 ```
-see excercise
+see Exercise
 ```
 #### Solution 2
 ```js
@@ -498,7 +498,7 @@ It can use either a `for` loop or `Array.prototype.forEach()`.
 
 Note: A pure function is allowed to alter local variables defined within its scope, although, it's preferable to avoid that as well.
 
-### Excercise
+### Exercise
 Write your own `Array.prototype.myFilter()`, which should behave exactly like `Array.prototype.filter()`. You may use a for loop or the `forEach()` method.
 
 ```js
@@ -555,7 +555,7 @@ var newArray = arr.slice(1,3);
 // sets new Array to ["Dog", "Tiger"] 
 ```
 
-### Excercise
+### Exercise
 Use the `slice()` method in the `sliceArray` function to return part of the `anim` array given the provided `beginSlice` and `endSlice` indices.
 The function should return an array.
 
@@ -590,7 +590,7 @@ As we saw in the last challenge, the `slice` method does not mutate the original
 Recall that the `slice` method takes two arguments for the indicies to begin and end the slice (the end is non-inclusive), and returns those items in a new arry. Using the `slice`method instead of `splice` helps to avoid any array-mutating side effects.
 
 
-### Excercise
+### Exercise
 
 Rewrite the function `nonMutatingSplice`by using `slice` instead of `splice`. It should limit the provided `cities` array to a length of 3, and return a new array with only the first three items.
 
@@ -676,7 +676,7 @@ const usersObj = users.reduce((obj, user) => {
 console.log(userObj); // {John: 34, Amy: 20, camperCat: 10}
 ```
 
-### Excercise
+### Exercise
 The variable `watchList` holds an array of objects with information on several movies.
 
 Use `reduce` to find the average IMDB rating of the movies **directed by Christopher Nolan**. Recall from prior challenges how to `filter` data and `map` over it to pull what you need. You ay need to create other variables, and return the average rating from `getRating` function.
@@ -684,5 +684,359 @@ Use `reduce` to find the average IMDB rating of the movies **directed by Christo
 Note that the rating values are saved as strings in the object and need to be converted into numbers before they are used in any mathematical operations.
 
 ```js
+var watchList = [{},{},{},...];
 
+function getRating(watchList) {
+    let i = 1;
+    var averageRating = watchList
+            .filter(item => item.Director == "Christopher Nolan")
+            .map(item => Number(item.imdbRating))
+            .reduce(function(acc,cur) {
+                i++;
+                return acc = acc + cur;
+            }) / i;
+return averageRating;
+}
+console.log(getRating(watchList));
+```
+
+### Solutions
+#### Solution 1 === myExample
+#### Solution 2
+```js
+var watchList = [{},{},{},...];
+
+function getRating(watchList) {
+    var count = 0;
+    var averageRating = watchList
+            .reduce((sum,movie) =>  {
+                if (movie.Director == "Christopher Nolan") {
+                count+=1;
+                return sum + parseFloat(movie.imdbRating);
+            }
+    return sum;
+  }, 0) / count;
+return averageRating;
+}
+console.log(getRating(watchList));
+```
+
+#### Solution 3
+```js
+var watchList = [{},{},{},...];
+
+function getRating(watchList) {
+    const averageRating = watchList.reduce(
+        ({sum, count}, {Director: dir, imdbRating: rating}, idx, arr) => {
+        if (dir === 'Christopher Nolan') {
+            count++;
+            sum+= Number(rating);
+        }
+
+        return idx === arr.length - 1 ?
+            sum / count : { sum, count };
+            
+    }, { sum: 0, count: 0 });
+    return averageRating;
+}
+```
+
+## Use Higher-order Functions map, filter or reduce to Solve a Complex Problem
+
+Now that you have worked through a few challenges using higher-order functions like `map()`, `filter()`, and `reduce()`, you now get to apply them to solve a more complex challenge.
+
+### Exercise
+
+We have defined a function named `squareList`.
+You need to complete the code for the `squareList` function using any combination of `map()`, `filter()`, and `reduce()` so that it returns a new array containing only the square of *only* the positive integers (decimal numbers are not integers) when an array of real numbers is passed to it.
+An example of an array containing only real numbers is `[-3, 4.8, 5, 3, -3.2]`.
+
+**Note**: Your function should not use any kind of `for` or `while` loops or the `forEach()` function.
+
+```js
+const squareList = (arr) => {
+    return arr
+            .filter(number => (number >= 0) && (number % 1 === 0))
+            .map(number => number*number);
+};
+```
+
+### Solutions
+#### Solution 1 - filter and map
+```js
+const squareList = arr => 
+    arr
+        .filter( num => num > 0 && num % parseInt(num) === 0 )
+        .map( num => Math.pow(num, 2) );
+```
+
+#### Solution 2 - reduce
+```js
+const squareList = arr => {
+    return arr.reduce((sqrIntegers, num) => {
+        return Number.isInteger(num) && num > 0 ?
+            sqrIntegers.concat(num*num) :
+            sqrIntegers;
+    }, []); 
+};
+```
+
+## Sort an Array Alphabetically using the sort Method
+
+The `sort()` method sorts the elements of an array according to the callback function.
+
+For example:
+
+```js
+function ascendingOrder(arr) {
+    return arr.sort(function(a,b) {
+        return a - b;
+    });
+}
+assendingOrder([1,5,2,3,4]);
+// returns [1,2,3,4,5]
+
+function reverseAlpha(arr) {
+    return arr.sort(function(a,b){
+        return A === b ? 0 : a < b ? 1 : -1;
+    });
+}
+reverseAlpha(['l', 'h', 'z', 'b', 's']);
+// returns [ 'z', 's', 'l', 'h', 'b']
+```
+
+JavaScript's default sorting method is by string Unicode point value, which may return unexpected results.
+
+Therefore, it is encouraged to provide a callback function to specify how to sort the array items.
+
+When such a callback function, normally called `compareFunction`, is supplied, the array elements are sorted according to the return value of the `compareFunction`:
+
+If `compareFunction(a,b)` returns a value less than 0 for two elements `a` and `b`, then `a` will come before `b`.
+
+If `compareFunction(a,b)` returns a value greater than 0 for two elements `a` and `b`, then `a` will come before `b`.
+
+If `compareFunction(a,b)` returns a value equal to 0 for two elements `a` and `b`, then `a` and `b` will remain unchanged.
+
+### Exercise
+
+Use the `sort` method in the `alphabeticalOrder` function to sort the elements of `arr` in alphabetical order.
+
+```js
+function alphabeticalOrder(arr) {
+    return arr.sort(function(a,b) {
+        return a === b ? 0 : a > b ? 1 : -1 ;
+    })
+}
+```
+
+## Return a Sorted Array Without Changing the Original Array
+
+A side effect of the `sort` method is that it chagnes the order of the elements in the original array. In other words, it mutates the array in place.
+
+One way to avoid this is to first concatenate an empty array to tthe one being sorted (remember that `slice` and `concat` return a new array), then run the `sort` method.
+
+### Exercise
+
+Use the `sort` method in the `nonMutateSort`function to sort the elements of an array in ascending order. The function should return a new array, and not mutate the `globalArray` variable.
+
+```js
+var globalArray = [5,6,3,2,9];
+function nonMutatingSort(arr) {
+    return arr.concat().sort((a,b) => a-b);
+    //OR
+    return arr.slice().sort((a,b) => a-b);
+    //OR
+    return [].concat(arr).sort((a,b)) => a-b);
+}
+```
+
+## Split a String into an Array Using the split Method
+
+The `split` method splits a string into an array o strings.
+
+It takes an argument for the delimiter, which can be a character to use to break up the string or a regular expression.
+
+For example. if the delimiter is a space, you get an array of words, and if the delimiter is an empty string, you get an array of each character in the string.
+
+Here are two examples that split one string by spaces, then another by digits using a regular expression:
+
+```js
+var str = "Hello World";
+var bySpace = str.split(" ");
+// Sets bySpace to ["Hello", "World"]
+
+var otherString = "How9are7you2today";
+var byDigits = otherString.split(/\d/);
+// sets byDigits to ["How", "are", "you", "today"]
+```
+
+Since strings are immutable to `split` method makes it easier to work with them.
+
+### Exercise
+```js
+function splititfy(str) {
+    return str.split(/\W/);
+}
+splitify("Hello World,I-am code");
+// returns ["Hello", "World", "I", "am", "code"]
+```
+## Combine an Array into a String Using the join Method
+
+The `join` method is used to join the elements of an array together ot create a string. It takes an argument for the delimiter that is used to spearate the array elements in the string.
+
+Here's an example:
+```js
+var arr = ["Hello", "World"];
+var str = arr.join(" ");
+// Sets str to "Hello World"
+```
+
+### Exercise
+
+Use the `join` method (among others) inside the `sentensify` function to make a sentence from the words in the string `str`. The function should return a string. For example, "I-like-star-wars" would be converted to "I like Star Wars". For this challenge, do not use the `replace` method.
+```js
+function sentensify(str) {
+    return str.split(/\W/).join(" ");
+}
+sentensify("May-the-force-be-with-you");
+// returns "May the force be with you"
+```
+
+## Apply Functional Programming to Convert Strings to URL Slugs
+
+The last several challenges covered a number of useful array and string methods that follow functional programming principles. We've also learned about `reduce`, which is a powerful method used to reduce problems to simpler forms.
+
+From computing averages to sorting, any array operation an be achieved by applying it.
+Recall the `map` and `filter` are special cases o `reduce`.
+
+Let's combine what we've learned to solve a practical problem.
+
+Many content management sites (CMS) have the titles of a post added to part of the URL for simple bookmarking purposes.
+
+For example, if you write a Medium post titled "Stop Using Reduce", It's likely the URL would have some form of the title string in it (".../stop-using-reduce").
+
+You may have already noticed this on the freeCodeCamp site.
+
+### Exercise
+
+Fill in the `urlSlug` function so it converts a string `title` and returns the hyphenated version for the URL. You can use any of the methods covered in this section, and don't use `replace`.
+
+Here are the requirements.
+
+The input is a string with spaces and title-cased words.
+
+The output is a string with the spaces between words replaced by a hyphen (`-`).
+
+The output should be all lower-cased letters.
+
+The output should not have any spaces.
+
+```js
+function urlSlug(title) {
+    return title
+        .split(/\W/)
+        .map(item => item.toLowerCase())
+        .filter(x => x != "")
+        .join("-")
+}
+```
+
+### Solutions
+#### Solution 1
+```js
+function urlSlug(title) {
+    return title
+        .split(/\W/)
+        .filter(obj => obj !== "";)
+        .join("-")
+        .toLowerCase();
+}
+```
+#### Solution 2
+```js
+function urlSlug(title) {
+    return title
+        .toLowerCase()
+        .trim()
+        .split(/\s+/)
+        .join("-");
+}
+```
+
+## Use the every Method to Check that Every Element in an Array Meets a Criteria
+
+The `every` method works with arrays to check if `every` element passes a particular test.
+It returns a Boolean Value - `true` if all values meet the criteria, `false` if not.
+
+For example, 
+the following code would check if every element in the `numbers` array is less than 10:
+
+```js
+var nubmers = [ 1, 5, 8, 0 10, 11];
+numbers.every(item => currentValue < 10);
+// returns false
+```
+
+## Use the some Method to Check that Any Elements in an Array Meet a Criteria
+The `some` method works with arrays to check if *any* element passes a particular test.
+
+It returns a Boolean value - `true` if any of the values meet the criteria, `flase` if not.
+
+Example:
+```js
+var numbers = [10, 50, 8, 220, 110, 11];
+numbers.some(value => value < 10);
+// returns True
+```
+
+## Introduction to Currying and Partial Application
+
+The *arity* of a function is the number of arguments it requires.
+*Currying* a function means to convert a function of N arity into N functions of arity 1.
+
+In other words, it restructures a function so it takes one argument, then returns another function that takes the next argument, and so on.
+
+Here's an example:
+```js
+//Un-curried function
+function unCurried(x,y) {
+    return x + y;
+}
+
+//Curried function
+function curried(x) {
+    return function (y) {
+        return x + y;
+    }
+}
+
+// Alternative using ES6
+const curried = x => y => x + y
+```
+
+This is useful in your program if you can't supply all the arguments to a function at one time.
+
+You can save each function call into a variable,
+which will hold the returned function reference that takes the next argument when it's available.
+
+Here's an example using the curried function in the example above:
+```js
+// Call a curried function in parts:
+var funcForY = curried(1);
+funcforY(2);
+// returns 3
+```
+
+Similary, *partial application* can be described as applying a few arguments to afunction at a time and returning another function that is applied to more arguments.
+
+Here's an example:
+```js
+// Impartial function
+function impartial (x,y,z) {
+    return x + y + z;
+}
+
+var partialFn = impartial.bind(this, 1, 2);
+partialFn(10); 
+// Returns 13
 ```
