@@ -305,6 +305,97 @@ The `watchList` array holds objects with information on several movies. Use `map
 
 var watchList = [{...},{...},...];
 
-var ratings = [];
+// Option 1 Using parameter destructuring
+const fnc1 = function({Title: title, imdbRating: rating}) {return {title, rating}};
+
+// Option 2
+const fnc2 = function (item) {return { title: item.Title, rating: item.imdbRating}};
+
+
+var ratings = watchList.map(fnc1);
 
 console.log(JSON.stringify(ratings));
+
+```
+
+## Implement map on a Prototype
+
+As you have seen from applying `Array.prototype.map()`, or simply `map()` earlier, the `map()` method returns an array of the same length as the one it was called on. It also doesn't alter the original array, as long as its callback function doesn't.
+
+In other words, `map` is a pure function, and its output depends soley on its inputs. Plus, it takes another function as its argument.
+
+It would teach us a lot about `map` to try to implement a version of it that behaves exactly like the `Array.prototype.map()` with a `for` loop or `Array.prototype.forEach()`.
+
+**Note:** A pure function is allowed to alter local variables defined within its scope, although, it's preferable to avoid that as well.
+
+### Exercise
+
+Write your own `Array.prototype.myMap()`, which should behave exactly like `Array.prototype.map()`. You may use a `for` loop or the `forEach` method.
+
+```js
+// The global variable
+var s = [23, 65, 98, 5];
+
+Array.prototype.myMap = function(callback) {
+    var newArray = [];
+    // Begin
+
+    this.forEach(x => newArray.push(callback(x)));
+
+    // End 
+    return newArray;
+};
+
+var new_s = s.myMap(item => item*2});
+```
+
+## Use the filter Method to Extract Data from an Array
+
+Another useful array function is `Array.prototype.filter()`, or simply `filter()`.
+
+Filter calls a function on each elemenet of an array and returns a new array containing only the elements for which tht function returns `true`.
+
+In other words, it filters the array, based on the function passed to it.
+
+Like `map`, it does this without needing to modify the original array.
+
+The callback function accepts three arguments.
+
+The first argument is the current element being processed. 
+The secound artument is index of that element and the third is the array upon which the `filter` method was called.
+
+See below for an example using the `filter` method on the `users` array to return a new array containing only the users under the age of 30.
+
+For simplicity, the example only uses the first argument of the callback.
+
+```js
+const users = [
+    {name: "John", age: 34},
+    {name: "Amy", age: 20},
+    {name: "camperCat", age: 10}
+];
+
+const userUnder30 = users.filter( user => user.age <30);
+console.log(usersUnder30); // [{name: "Amy", age: 20}, {name: "camperCat", age: 10}];
+```
+
+### Exercise
+
+The variable `watchList` holds an array of objects with information on several movies.
+
+Use a combination of `filter` and `map` on watchList to assign a new array of objects with only `title` and `rating` keys. The new array should only include objects where `imdbRating` is greater than or equal to 8.0.
+
+**Note:** The rating values are saved as strings in the object and you may need to convert them into numbers to perform mathematical operations on them.
+
+```js
+
+//Global variable
+var watchList = [{},...]; 
+
+let fncFilter = x => x.imdbRating >= 8.0;
+let fncMap = function({Title: title, imdbRating: rating}) {return {title, rating}};
+
+var filteredList = watchList.filter(fncFilter).map(fncMap);
+
+console.log(filteredList);
+
