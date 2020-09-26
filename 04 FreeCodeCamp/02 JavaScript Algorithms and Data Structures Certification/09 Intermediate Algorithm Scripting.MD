@@ -84,7 +84,7 @@ function diffArray(arr1, arr2) {
 
     while (workArr.length > 0) {
         temp = workArr.splice(0,1)[0];
-
+        let index = workArr.findIndex(temp);
         if(index === -1) {
             output.push(temp);
         } else {
